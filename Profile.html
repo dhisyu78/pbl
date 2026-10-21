@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Saya - Nina Rasa</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/auth.js"></script>
+</head>
+<body class="dashboard-body profile-page">
+  <header class="home-header">
+    <a class="home-logo" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+      <img src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa">
+    </a>
+    <nav class="home-nav" aria-label="Navigasi utama">
+      <a href="Dashboard.html">Home</a>
+      <a href="Menu.html">Menu</a>
+      <a href="Kursi.html">kursi</a>
+      <a class="is-active" href="Profile.html" aria-current="page">Profile</a>
+    </nav>
+  </header>
+
+  <main class="profile-content">
+    <h1>Profil saya</h1>
+    <div class="profile-layout">
+      <form class="profile-form" id="profile-form">
+        <label class="profile-field" for="profile-username">
+          <span>Username</span>
+          <input id="profile-username" name="username" type="text" autocomplete="username" readonly required>
+        </label>
+        <label class="profile-field" for="profile-name">
+          <span>Nama</span>
+          <input id="profile-name" name="name" type="text" autocomplete="name" required>
+        </label>
+        <label class="profile-field" for="profile-email">
+          <span>Email</span>
+          <input id="profile-email" name="email" type="email" autocomplete="email" required>
+        </label>
+        <label class="profile-field" for="profile-phone">
+          <span>Nomor telepon</span>
+          <input id="profile-phone" name="phone" type="tel" autocomplete="tel" required>
+        </label>
+        <fieldset class="profile-field profile-gender">
+          <legend>Jenis kelamin</legend>
+          <label><input type="radio" name="gender" value="Laki-laki" required> <span>Laki-laki</span></label>
+          <label><input type="radio" name="gender" value="Perempuan"> <span>Perempuan</span></label>
+        </fieldset>
+        <label class="profile-field" for="profile-birthdate">
+          <span>Tanggal lahir</span>
+          <input id="profile-birthdate" name="birthdate" type="date" autocomplete="bday" required>
+        </label>
+        <button class="profile-save-button" type="submit">Simpan</button>
+        <div class="profile-save-status" id="profile-save-status" role="status" aria-live="polite" aria-atomic="true">
+          <strong id="profile-save-title"></strong>
+          <span id="profile-save-message"></span>
+        </div>
+      </form>
+
+      <aside class="profile-picture-panel">
+        <div class="profile-avatar">
+          <img id="profile-avatar-image" alt="Foto profil" hidden>
+          <svg id="profile-avatar-placeholder" aria-hidden="true" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="60" fill="#c7a184"></circle>
+            <path d="M28 111c4-22 15-32 32-32s28 10 32 32" fill="#64717a"></path>
+            <path d="M39 45c0-19 9-30 22-30 15 0 22 12 22 30v16H39z" fill="#30231e"></path>
+            <ellipse cx="60" cy="53" rx="18" ry="23" fill="#d5aa91"></ellipse>
+            <path d="M41 48c1-20 9-31 22-31 12 0 20 9 21 28-7-4-12-11-14-18-6 9-16 15-29 18z" fill="#30231e"></path>
+            <path d="m48 80 12 13 12-13 10 5-5 26H43l-5-26z" fill="#e5e0d9"></path>
+          </svg>
+        </div>
+        <label class="profile-picture-button" for="profile-picture">Ubah gambar</label>
+        <input id="profile-picture" class="visually-hidden" type="file" accept="image/*">
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const pictureInput = document.querySelector("#profile-picture");
+    const avatarImage = document.querySelector("#profile-avatar-image");
+    const avatarPlaceholder = document.querySelector("#profile-avatar-placeholder");
+    const profileForm = document.querySelector("#profile-form");
+    const saveStatus = document.querySelector("#profile-save-status");
+    const saveStatusTitle = document.querySelector("#profile-save-title");
+    const saveStatusMessage = document.querySelector("#profile-save-message");
+    let currentImageUrl = "";
+    let saveStatusTimeout;
+    profileForm.elements.username.value = NinaRasaAuth.getCurrentUsername();
+
+    function showSaveStatus(title, message, isError = false) {
+      window.clearTimeout(saveStatusTimeout);
+      saveStatusTitle.textContent = title;
+      saveStatusMessage.textContent = message;
+      saveStatus.classList.toggle("is-error", isError);
+      saveStatus.classList.add("is-visible");
+      saveStatusTimeout = window.setTimeout(() => {
+        saveStatus.classList.remove("is-visible");
+      }, 5000);
+    }
+
+    try {
+      const savedProfile = NinaRasaAuth.getProfile();
+      if (savedProfile) {
+        for (const field of profileForm.elements) {
+          if (field.name === "gender") {
+            field.checked = field.value === savedProfile.gender;
+          } else if (field.name && Object.hasOwn(savedProfile, field.name)) {
+            field.value = savedProfile[field.name];
+          }
+        }
+      }
+    } catch (error) {
+      showSaveStatus("Profil belum dapat dimuat", "Silakan muat ulang halaman dan coba lagi.", true);
+    }
+
+    profileForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const profile = Object.fromEntries(new FormData(profileForm));
+
+      try {
+        NinaRasaAuth.saveProfile(profile);
+        showSaveStatus("Yeay, profil tersimpan!", "Data profilmu sudah diperbarui di perangkat ini.");
+        window.setTimeout(() => window.location.assign("Dashboard.html"), 1200);
+      } catch (error) {
+        showSaveStatus("Belum berhasil menyimpan", error.message || "Silakan coba lagi sebentar lagi.", true);
+      }
+    });
+
+    pictureInput.addEventListener("change", () => {
+      const [file] = pictureInput.files;
+      if (!file) {
+        return;
+      }
+
+      if (currentImageUrl) {
+        URL.revokeObjectURL(currentImageUrl);
+      }
+      currentImageUrl = URL.createObjectURL(file);
+      avatarImage.src = currentImageUrl;
+      avatarImage.hidden = false;
+      avatarPlaceholder.hidden = true;
+    });
+  </script>
+</body>
+</html>

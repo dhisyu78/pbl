@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesanan Saya - Nina Rasa</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/auth.js"></script>
+</head>
+<body class="dashboard-body">
+  <header class="home-header">
+    <a class="home-logo" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+      <img src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa">
+    </a>
+    <nav class="home-nav" aria-label="Navigasi utama">
+      <a href="Dashboard.html">Home</a>
+      <a href="Menu.html">Menu</a>
+      <a href="Kursi.html">kursi</a>
+      <a href="Profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="content-page">
+    <section class="page-intro">
+      <p class="eyebrow">Riwayat dan status</p>
+      <h1>Pesanan Saya</h1>
+      <p>Periksa pilihan menu sebelum melanjutkan.</p>
+    </section>
+    <section class="seating-panel order-review" aria-labelledby="orders-title" aria-live="polite">
+      <div class="seating-icon" aria-hidden="true">🛍️</div>
+      <h2 id="orders-title">Belum ada pesanan</h2>
+      <p id="orders-message">Yuk, pilih menu favoritmu dan nikmati hidangan Nina Rasa.</p>
+      <div class="order-lines" id="order-lines" hidden></div>
+      <p class="order-total" id="order-total" hidden></p>
+      <a class="dashboard-button" id="orders-action" href="Menu.html">Jelajahi Menu <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="dashboard-footer">
+    <a class="footer-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+      <img src="assets/logo-nina-rasa.png" alt="">
+      <span class="footer-brand-copy"><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+    </a>
+    <p>Rasa hangat dari keluarga. Dibuat dengan sepenuh hati di Indonesia.</p>
+    <a href="Login.html">Masuk staf</a>
+  </footer>
+  <script>
+    const savedCart = JSON.parse(localStorage.getItem("ninaRasaCart") || "{}");
+    const orderProducts = [
+      { name: "Bakso Solo Campur", price: 20000, image: "🍲" },
+      { name: "Cilok 1 Porsi", price: 15000, image: "🥣" },
+      { name: "Mie Ayam Original", price: 10000, image: "🍜" },
+      { name: "Mie Ayam Mozarella", price: 15000, image: "🍜" },
+      { name: "Es Teh", price: 4000, image: "🧋" },
+      { name: "Es Cincau", price: 6000, image: "🥤" },
+      { name: "Ceker Ayam", price: 5000, image: "🍗" },
+      { name: "Pangsit Goreng", price: 5000, image: "🥟" }
+    ];
+    const formatOrderPrice = amount => `Rp ${amount.toLocaleString("id-ID")}`;
+    const orderItems = orderProducts.filter(product => savedCart[product.name] > 0);
+    const orderCount = orderItems.reduce((total, product) => total + savedCart[product.name], 0);
+    const orderSum = orderItems.reduce((total, product) => total + savedCart[product.name] * product.price, 0);
+
+    if (orderItems.length > 0) {
+      const orderLines = document.querySelector("#order-lines");
+      orderLines.hidden = false;
+      document.querySelector("#orders-title").textContent = "Ringkasan Pesanan";
+      document.querySelector("#orders-message").textContent = "Pilihan ini tersimpan di browser dan belum dikirim ke restoran.";
+      document.querySelector("#order-total").hidden = false;
+      document.querySelector("#order-total").textContent = `Total · ${formatOrderPrice(orderSum)}`;
+      document.querySelector("#orders-action").innerHTML = `Kembali ke Menu <span aria-hidden="true">→</span>`;
+
+      orderItems.forEach(product => {
+        const row = document.createElement("div");
+        row.className = "order-line";
+        const title = document.createElement("span");
+        title.className = "order-line-title";
+        title.textContent = `${product.image} ${product.name} × ${savedCart[product.name]}`;
+        const price = document.createElement("strong");
+        price.textContent = formatOrderPrice(product.price * savedCart[product.name]);
+        row.append(title, price);
+        orderLines.append(row);
+      });
+    }
+  </script>
+</body>
+</html>

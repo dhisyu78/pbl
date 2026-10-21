@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Nina Rasa</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/auth.js"></script>
+</head>
+<body class="login-page">
+  <main class="auth-card login-card">
+    <section class="brand-panel" aria-label="Nina Rasa">
+      <img class="brand-logo-image" src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa - Bakso &amp; Mie Ayam">
+    </section>
+
+    <section class="form-panel">
+      <h1>LOGIN</h1>
+      <form id="login-form">
+        <div class="fields">
+          <div class="field">
+            <label for="login-username">Username</label>
+            <div class="field-control">
+              <input id="login-username" name="username" type="text" placeholder="Username" autocomplete="username" required>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="3.5"></circle>
+                <path d="M5.5 20c.4-3.6 2.8-5.5 6.5-5.5s6.1 1.9 6.5 5.5"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="field">
+            <label for="login-password">Password</label>
+            <div class="field-control">
+              <input id="login-password" name="password" type="password" placeholder="Password" autocomplete="current-password" required>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <rect x="5.5" y="10" width="13" height="10" rx="2"></rect>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p class="form-link">Belum ada akun? <a href="Register.html">Daftar dulu!</a></p>
+        <p class="auth-feedback" id="login-feedback" role="status" aria-live="polite"></p>
+        <button class="submit-button" type="submit">MASUK</button>
+      </form>
+    </section>
+  </main>
+  <script>
+    const loginForm = document.querySelector("#login-form");
+    const loginFeedback = document.querySelector("#login-feedback");
+
+    if (NinaRasaAuth.getCurrentUsername()) {
+      NinaRasaAuth.redirectToNextStep();
+    }
+
+    loginForm.addEventListener("submit", event => {
+      event.preventDefault();
+      try {
+        NinaRasaAuth.login(
+          loginForm.elements.username.value,
+          loginForm.elements.password.value
+        );
+        NinaRasaAuth.redirectToNextStep();
+      } catch (error) {
+        loginFeedback.textContent = error.message || "Login gagal. Silakan coba lagi.";
+      }
+    });
+  </script>
+</body>
+</html>
