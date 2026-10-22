@@ -22,6 +22,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Fokus keyboard yang seragam di seluruh kontrol */
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 3px solid #e3a43b;
+  outline-offset: 2px;
+}
+
 /* 2. Halaman login dan register */
 .auth-card {
   width: min(100%, 900px);
@@ -36,8 +42,6 @@ body {
 
 .register-card {
   width: min(80vw, 980px);
-  min-height: 0;
-  aspect-ratio: 1.69 / 1;
   grid-template-columns: 1.15fr 1fr;
   align-items: center;
   padding: 14px;
@@ -73,7 +77,6 @@ body {
   padding: 9px 14px 18px;
   border: 1px solid #9d9a91;
   border-radius: 9px;
-  transform: translateY(2.5px);
 }
 
 .register-card .form-panel h1 {
@@ -85,20 +88,20 @@ body {
 }
 
 .register-card .fields {
-  gap: 5px;
+  gap: 8px;
 }
 
 .register-card .field label {
   margin: 0 0 3px 10px;
   color: #51473b;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
 }
 
 .register-card .field input {
-  min-height: 32px;
-  padding: 7px 14px;
+  min-height: 40px;
+  padding: 8px 14px;
   border-color: #c3bcae;
   background: #f8f7f2;
   color: #4b3a28;
@@ -121,7 +124,7 @@ body {
   height: 16px;
   transform: translateY(-50%);
   fill: none;
-  stroke: #9c927f;
+  stroke: #857a6d;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.6;
@@ -129,7 +132,7 @@ body {
 }
 
 .register-card .field input::placeholder {
-  color: #9c927f;
+  color: #6f625c;
 }
 
 .register-card .field input:focus {
@@ -139,10 +142,10 @@ body {
 
 .register-card .submit-button {
   width: 100%;
-  height: 36px;
-  min-height: 36px;
+  height: 40px;
+  min-height: 40px;
   min-width: 0;
-  margin-top: 30px;
+  margin-top: 18px;
   padding: 0 20px;
   border-radius: 24px;
   background: #511c0a;
@@ -168,8 +171,6 @@ body {
 
 .login-card {
   width: min(80vw, 980px);
-  min-height: 0;
-  aspect-ratio: 1.69 / 1;
   grid-template-columns: 1.15fr 1fr;
   align-items: center;
   padding: 14px;
@@ -216,13 +217,13 @@ body {
 }
 
 .login-card .fields {
-  gap: 5px;
+  gap: 10px;
 }
 
 .login-card .field label {
   margin: 0 0 3px 10px;
   color: #51473b;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -232,8 +233,8 @@ body {
 }
 
 .login-card .field input {
-  min-height: 32px;
-  padding: 7px 38px 7px 14px;
+  min-height: 40px;
+  padding: 8px 38px 8px 14px;
   border-color: #c3bcae;
   background: #f8f7f2;
   color: #4b3a28;
@@ -241,7 +242,7 @@ body {
 }
 
 .login-card .field input::placeholder {
-  color: #9c927f;
+  color: #6f625c;
 }
 
 .login-card .field input:focus {
@@ -257,7 +258,7 @@ body {
   height: 16px;
   transform: translateY(-50%);
   fill: none;
-  stroke: #9c927f;
+  stroke: #857a6d;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.6;
@@ -282,8 +283,8 @@ body {
 
 .login-card .submit-button {
   width: 100%;
-  height: 36px;
-  min-height: 36px;
+  height: 44px;
+  min-height: 44px;
   min-width: 0;
   margin-top: 12px;
   padding: 0 20px;
@@ -497,13 +498,13 @@ h1 {
 .dashboard-logo-copy small {
   margin-top: 2px;
   color: #78645e;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .footer-brand-copy small {
   margin-top: 2px;
   color: #f8e9df;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .dashboard-nav,
@@ -535,7 +536,7 @@ h1 {
   border-radius: 7px;
   background: var(--maroon);
   color: #fff;
-  font-size: 11px;
+  font-size: 13px;
   text-decoration: none;
 }
 
@@ -561,7 +562,7 @@ h1 {
 .eyebrow {
   margin: 0 0 8px;
   color: #a53c2e;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -595,11 +596,11 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 10px 15px;
-  border-radius: 6px;
+  padding: 12px 18px;
+  border-radius: 8px;
   background: var(--maroon);
   color: #fff;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -612,7 +613,7 @@ h1 {
 .hero-note {
   margin-left: 12px;
   color: #85756f;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .hero-art {
@@ -661,7 +662,7 @@ h1 {
   border-radius: 6px;
   background: #fffaf4;
   color: var(--maroon);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
   line-height: 1.4;
   transform: rotate(-5deg);
@@ -672,7 +673,7 @@ h1 {
   bottom: 12px;
   left: 14px;
   color: #fff;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   text-shadow: 0 1px 4px #38241f;
 }
@@ -720,7 +721,7 @@ h1 {
 }
 
 .story-badge small {
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.4;
 }
 
@@ -738,7 +739,7 @@ h1 {
   padding: 9px 12px;
   background: #fff1e5;
   color: var(--maroon);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 /* Kartu menu ringkas yang juga dipakai di dashboard */
@@ -761,7 +762,7 @@ h1 {
 
 .all-menu-link {
   color: var(--maroon);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   text-decoration: none;
 }
@@ -774,7 +775,7 @@ h1 {
 
 .menu-card {
   overflow: hidden;
-  border-radius: 9px;
+  border-radius: 12px;
   background: #fff;
   box-shadow: 0 5px 16px rgb(61 36 26 / 8%);
 }
@@ -817,18 +818,18 @@ h1 {
   border-radius: 20px;
   background: #fff9ed;
   color: var(--maroon);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .menu-details {
-  padding: 11px 13px 13px;
+  padding: 14px 14px 16px;
 }
 
 .menu-category {
   margin: 0 0 5px;
   color: #ac492c;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .menu-details h3 {
@@ -841,7 +842,7 @@ h1 {
 .menu-price {
   margin: 0;
   color: var(--maroon);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
 }
 
@@ -876,8 +877,12 @@ h1 {
 .dashboard-footer > a:last-child {
   margin: 0;
   color: #f8e9df;
-  font-size: 9px;
+  font-size: 12px;
   text-decoration: none;
+}
+
+.dashboard-footer > a:last-child {
+  padding: 6px 2px;
 }
 
 .dashboard-footer > a:last-child:hover {
@@ -907,8 +912,8 @@ h1 {
 .page-intro > p:last-child {
   margin: 12px auto 0;
   color: #756761;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 .full-menu-grid {
@@ -952,8 +957,8 @@ h1 {
 
 .menu-heading > div > p:last-child {
   margin: 7px 0 0;
-  color: #85756f;
-  font-size: 12px;
+  color: #6f625c;
+  font-size: 14px;
 }
 
 .menu-open-status {
@@ -961,11 +966,11 @@ h1 {
   align-items: center;
   gap: 7px;
   margin-bottom: 3px;
-  padding: 7px 10px;
+  padding: 8px 12px;
   border-radius: 20px;
   background: #e8f5eb;
   color: #307246;
-  font-size: 9px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
@@ -986,14 +991,14 @@ h1 {
 }
 
 .menu-search {
-  width: min(100%, 270px);
-  min-height: 36px;
+  width: min(100%, 288px);
+  min-height: 44px;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0 11px;
+  padding: 0 14px;
   border: 1px solid #eadfd8;
-  border-radius: 7px;
+  border-radius: 10px;
   background: #fff;
   color: #8e7b73;
 }
@@ -1011,11 +1016,17 @@ h1 {
   background: transparent;
   color: #38241f;
   font: inherit;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .menu-search input::placeholder {
-  color: #a0918b;
+  color: #6f625c;
+}
+
+.menu-search:has(input:focus-visible) {
+  border-color: var(--maroon);
+  outline: 3px solid #e3a43b;
+  outline-offset: 2px;
 }
 
 .menu-filters {
@@ -1025,15 +1036,15 @@ h1 {
 }
 
 .menu-filter {
-  min-height: 30px;
-  padding: 0 12px;
+  min-height: 40px;
+  padding: 0 16px;
   border: 1px solid #eadfd8;
   border-radius: 18px;
   background: #fff;
   color: #685852;
   cursor: pointer;
   font: inherit;
-  font-size: 10px;
+  font-size: 13px;
   transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
@@ -1048,6 +1059,13 @@ h1 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   max-width: 1440px;
+}
+
+/* Empat kolom terlalu sempit untuk harga + stepper sebelum layar lebar */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .order-menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .order-menu-card {
@@ -1070,7 +1088,7 @@ h1 {
 }
 
 .order-menu-card.is-sold-out .menu-tag {
-  background: #9d918b;
+  background: #6f625c;
   color: #fff;
 }
 
@@ -1103,7 +1121,7 @@ h1 {
 }
 
 .order-menu-card .menu-details {
-  padding: 9px 10px 11px;
+  padding: 12px 12px 14px;
 }
 
 .product-category {
@@ -1113,14 +1131,14 @@ h1 {
   border-radius: 8px;
   background: #fff0e5;
   color: #a84a32;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .order-menu-card .menu-details h2 {
-  min-height: 28px;
-  margin: 0 0 8px;
+  min-height: 36px;
+  margin: 0 0 10px;
   color: #38241f;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.3;
 }
 
@@ -1128,30 +1146,30 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 8px;
 }
 
 .order-menu-card .menu-price {
-  font-size: 10px;
+  font-size: 13px;
   white-space: nowrap;
 }
 
 .quantity-control {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   color: #54453f;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .quantity-button {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
   padding: 0;
-  border: 1px solid #eee5df;
-  border-radius: 6px;
+  border: 1px solid #d9cbc2;
+  border-radius: 8px;
   background: #fff;
   color: var(--maroon);
   cursor: pointer;
@@ -1166,7 +1184,8 @@ h1 {
 }
 
 .quantity-button:disabled {
-  color: #c9bfba;
+  border-color: #e8e1db;
+  color: #9c8f89;
   cursor: not-allowed;
 }
 
@@ -1176,8 +1195,8 @@ h1 {
 }
 
 .quantity-control:has(> :only-child) {
-  color: #a0918b;
-  font-size: 8px;
+  color: #6f625c;
+  font-size: 11px;
 }
 
 .menu-empty-message {
@@ -1193,13 +1212,13 @@ h1 {
   right: 50%;
   bottom: 16px;
   width: min(420px, calc(100% - 32px));
-  min-height: 56px;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 8px 10px 8px 14px;
-  border-radius: 10px;
+  padding: 10px 12px 10px 16px;
+  border-radius: 12px;
   background: #76120d;
   color: #fff;
   box-shadow: 0 8px 24px rgb(54 19 15 / 28%);
@@ -1232,21 +1251,21 @@ h1 {
 }
 
 .cart-summary-info strong {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .cart-summary-info small {
   margin-top: 3px;
   color: #f8e9df;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .cart-summary > a {
-  padding: 9px 12px;
-  border-radius: 6px;
+  padding: 11px 16px;
+  border-radius: 8px;
   background: #fff1e5;
   color: var(--maroon);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
   text-decoration: none;
   white-space: nowrap;
@@ -1284,7 +1303,7 @@ h1 {
   max-width: 440px;
   margin: 12px auto 20px;
   color: #756761;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -1458,6 +1477,7 @@ h1 {
 }
 
 .home-nav a {
+  padding: 6px 2px;
   color: #51443e;
   font-size: 15px;
   font-weight: 700;
@@ -1467,7 +1487,13 @@ h1 {
 
 .home-nav a:hover,
 .home-nav a.is-active {
-  color: #4a1b0d;
+  color: var(--maroon);
+}
+
+.home-nav a.is-active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
 }
 
 .home-main {
@@ -1508,7 +1534,6 @@ h1 {
   font-weight: 800;
   line-height: 1.12;
   text-align: left;
-  white-space: nowrap;
 }
 
 .home-dots {
@@ -1733,7 +1758,7 @@ h1 {
   }
 
   .profile-copy p {
-    font-size: 10px;
+    font-size: 13px;
     line-height: 1.5;
   }
 
@@ -1755,13 +1780,7 @@ h1 {
   }
 
   .home-food-card strong {
-    font-size: 10px;
-  }
-}
-
-@media (min-width: 430px) and (max-width: 540px) {
-  .home-hero h1 {
-    white-space: nowrap;
+    font-size: 13px;
   }
 }
 
@@ -1778,7 +1797,6 @@ h1 {
   .auth-card.register-card {
     width: min(100%, 460px);
     min-height: 0;
-    aspect-ratio: auto;
     grid-template-columns: 1fr;
     padding: 12px;
   }
@@ -1786,7 +1804,6 @@ h1 {
   .auth-card.login-card {
     width: min(100%, 460px);
     min-height: 0;
-    aspect-ratio: auto;
     grid-template-columns: 1fr;
     padding: 12px;
   }
@@ -1871,7 +1888,7 @@ h1 {
 
   .dashboard-nav a,
   .profile-link {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .dashboard-actions {
@@ -1945,7 +1962,7 @@ h1 {
   .menu-filter {
     flex: 0 0 auto;
     padding: 0 10px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .order-menu-grid {
@@ -1961,7 +1978,7 @@ h1 {
   }
 
   .order-menu-card .menu-details h2 {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .product-buy-row {
@@ -2047,9 +2064,9 @@ h1 {
   grid-column: 1;
   justify-self: end;
   min-width: 120px;
-  padding: 10px 22px;
+  padding: 11px 24px;
   border: 0;
-  border-radius: 7px;
+  border-radius: 8px;
   background: #9b4138;
   color: #fff;
   cursor: pointer;
@@ -2063,7 +2080,7 @@ h1 {
 }
 
 .profile-save-button:focus-visible {
-  outline: 3px solid rgb(138 74 49 / 25%);
+  outline: 3px solid #e3a43b;
   outline-offset: 2px;
 }
 
@@ -2077,9 +2094,8 @@ h1 {
   width: min(360px, calc(100vw - 32px));
   padding: 16px 20px 16px 58px;
   border: 1px solid #d7e8d8;
-  border-left: 5px solid #4a8b59;
   border-radius: 12px;
-  background: #fff;
+  background: #fbfdfb;
   box-shadow: 0 12px 32px rgb(48 35 30 / 18%);
   color: #30231e;
   opacity: 0;
@@ -2126,7 +2142,7 @@ h1 {
 
 .profile-save-status.is-error {
   border-color: #f0d2cf;
-  border-left-color: #b7443a;
+  background: #fdf9f8;
 }
 
 .profile-save-status.is-error::before {
@@ -2161,10 +2177,10 @@ h1 {
 .profile-field > input {
   width: 100%;
   min-width: 0;
-  height: 38px;
-  padding: 7px 10px;
+  height: 42px;
+  padding: 8px 12px;
   border: 1px solid #c9c4bf;
-  border-radius: 4px;
+  border-radius: 8px;
   background: #fff;
   color: #30231e;
   font: inherit;
@@ -2246,9 +2262,9 @@ h1 {
 
 .profile-picture-button {
   min-width: 112px;
-  padding: 7px 12px;
+  padding: 9px 14px;
   border: 1px solid #aaa39c;
-  border-radius: 7px;
+  border-radius: 8px;
   background: #fff;
   color: #30231e;
   cursor: pointer;
@@ -2330,6 +2346,6 @@ h1 {
   .profile-gender > label {
     gap: 5px;
     margin-right: 12px;
-    font-size: 11px;
+    font-size: 13px;
   }
 }

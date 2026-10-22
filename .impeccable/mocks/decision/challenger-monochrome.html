@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Satu Skala — Nina Rasa</title>
+<style>
+  :root{--paper:#fcfcfd;--ink:#0b0c0e;--mid:#5b6068;--line:#e7e8ec;--accent:#c8452a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:390px;height:844px;overflow:hidden;background:var(--paper);color:var(--ink);
+       font-family:"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .page{height:100%;display:flex;flex-direction:column}
+  header{padding:18px 20px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
+  .mark{width:28px;height:28px;border:1px solid var(--ink);display:grid;place-items:center;
+        font-size:7.5px;font-weight:700;line-height:1.05;text-align:center;letter-spacing:.02em}
+  header b{font-size:13px;font-weight:650;letter-spacing:-.01em}
+  header small{display:block;font-size:10px;color:var(--mid);letter-spacing:.01em}
+  .hours{margin-left:auto;font-size:10px;color:var(--mid);letter-spacing:.04em;text-transform:uppercase}
+  .intro{padding:22px 20px 6px}
+  .intro h1{font-size:32px;line-height:1.02;letter-spacing:-.035em;font-weight:650;max-width:12ch}
+  .intro p{margin-top:10px;font-size:12px;color:var(--mid);line-height:1.5;max-width:34ch}
+  .filters{display:flex;gap:6px;padding:16px 20px 4px}
+  .filters span{font-size:11px;padding:6px 10px;border:1px solid var(--line);border-radius:4px;color:var(--mid)}
+  .filters span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .claim{display:flex;align-items:baseline;gap:12px;padding:16px 20px;border-top:1px solid var(--line)}
+  .claim:first-of-type{border-top:1px solid var(--ink)}
+  .claim .body{flex:1;min-width:0}
+  .claim h2{font-size:14.5px;font-weight:650;letter-spacing:-.012em}
+  .claim .proof{margin-top:5px;font-size:11px;color:var(--mid);line-height:1.45}
+  .claim .proof em{font-style:normal;color:var(--ink)}
+  .claim .price{font-size:14px;font-weight:650;font-variant-numeric:tabular-nums;text-align:right}
+  .claim .price small{display:block;font-size:9.5px;font-weight:400;color:var(--mid);margin-top:3px}
+  .claim.active{border-left:2px solid var(--accent);padding-left:18px}
+  .claim .add{width:26px;height:26px;border:1px solid var(--line);border-radius:3px;background:#fff;
+        color:var(--ink);display:grid;place-items:center;font-size:14px;margin-left:4px}
+  .claim.gone .price{color:var(--mid);text-decoration:line-through}
+  .claim.gone h2{color:var(--mid)}
+  footer{margin-top:auto;border-top:1px solid var(--ink);padding:14px 20px 18px;
+         display:flex;align-items:center;gap:12px}
+  footer small{display:block;font-size:10px;color:var(--mid);text-transform:uppercase;letter-spacing:.06em}
+  footer b{font-size:16px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  footer a{margin-left:auto;background:var(--accent);color:#fff;text-decoration:none;border-radius:4px;
+           padding:12px 16px;font-size:12px;font-weight:650}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="mark">NINA<br>RASA</div>
+    <div><b>Nina Rasa</b><small>Bakso &amp; Mie Ayam</small></div>
+    <div class="hours">Buka 10–20</div>
+  </header>
+  <div class="intro">
+    <h1>Pilih dulu, pesan ke staf.</h1>
+    <p>Delapan menu hari ini. Tandai yang kamu mau, lalu tunjukkan ringkasannya ke staf.</p>
+  </div>
+  <div class="filters">
+    <span class="on">Semua</span><span>Bakso</span><span>Mie Ayam</span><span>Minuman</span>
+  </div>
+  <div class="claim active">
+    <div class="body">
+      <h2>Bakso Solo Campur</h2>
+      <div class="proof"><em>5 butir bakso sapi</em> · mie kuning · pangsit goreng · kuah kaldu</div>
+    </div>
+    <div class="price">Rp 20.000<small>2 di pesanan</small></div>
+    <div class="add">−</div>
+  </div>
+  <div class="claim">
+    <div class="body">
+      <h2>Mie Ayam Mozarella</h2>
+      <div class="proof"><em>Keju leleh</em> · porsi besar · paling dicari minggu ini</div>
+    </div>
+    <div class="price">Rp 15.000<small>1 di pesanan</small></div>
+    <div class="add">−</div>
+  </div>
+  <div class="claim">
+    <div class="body">
+      <h2>Cilok 1 Porsi</h2>
+      <div class="proof">10 butir · bumbu kacang · cabe rawit sesuai selera</div>
+    </div>
+    <div class="price">Rp 15.000<small>tambah</small></div>
+    <div class="add">+</div>
+  </div>
+  <div class="claim gone">
+    <div class="body">
+      <h2>Es Cincau</h2>
+      <div class="proof">Stok habis hari ini · kembali besok pagi</div>
+    </div>
+    <div class="price">Rp 6.000</div>
+  </div>
+  <footer>
+    <div><small>3 item</small><b>Rp 39.000</b></div>
+    <a href="#">Lihat pesanan</a>
+  </footer>
+</div>
+</body>
+</html>

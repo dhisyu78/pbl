@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Papan Tulis Harga — Nina Rasa</title>
+<style>
+  :root{--board:#16211c;--board-2:#1d2b24;--chalk:#f3f0e6;--flag:#f5d34a;--red:#e2554a;
+        --chalk-dim:#a9b3a9}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{width:390px;height:844px;overflow:hidden;background:var(--board);color:var(--chalk);
+       font-family:"Barlow Condensed","Segoe UI",sans-serif}
+  .board{height:100%;padding:18px 16px;display:flex;flex-direction:column;
+         background:radial-gradient(circle at 78% 8%,#24352c 0 26%,transparent 27%),
+                    linear-gradient(180deg,#182620,#13201a)}
+  .top{display:flex;align-items:center;gap:10px;padding-bottom:12px;
+       border-bottom:2px dashed rgb(243 240 230 / 30%)}
+  .mark{width:40px;height:40px;border:2px solid var(--chalk);border-radius:50%;
+        display:grid;place-items:center;font-size:10px;letter-spacing:.06em;line-height:1.1;text-align:center}
+  h1{font-size:21px;letter-spacing:.14em;text-transform:uppercase;line-height:1}
+  .top small{display:block;margin-top:5px;font:400 11px/1 "Barlow","Segoe UI",sans-serif;
+             letter-spacing:.16em;color:var(--chalk-dim);text-transform:uppercase}
+  .cats{display:flex;gap:14px;margin:14px 0 6px;font-size:14px;letter-spacing:.12em;
+        text-transform:uppercase;color:var(--chalk-dim)}
+  .cats b{color:var(--chalk);position:relative}
+  .cats b::after{content:"";position:absolute;left:0;right:-2px;bottom:-6px;height:3px;
+                 background:var(--flag);transform:rotate(-.8deg)}
+  .rows{flex:1;display:flex;flex-direction:column;overflow:hidden}
+  .row{display:flex;align-items:baseline;gap:10px;padding:15px 0 13px;
+       border-bottom:1px solid rgb(243 240 230 / 14%)}
+  .row h3{font-size:19px;letter-spacing:.03em;font-weight:600;line-height:1.05}
+  .row p{margin-top:5px;font:400 11px/1.4 "Barlow","Segoe UI",sans-serif;
+         letter-spacing:.04em;color:var(--chalk-dim)}
+  .dots{flex:1;border-bottom:2px dotted rgb(243 240 230 / 34%);transform:translateY(-5px)}
+  .harga{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+  .harga b{font-size:24px;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+  .flag{background:var(--flag);color:#20180a;font:700 11px/1 "Barlow","Segoe UI",sans-serif;
+        padding:4px 7px;border-radius:2px;transform:rotate(-3deg);letter-spacing:.04em}
+  .row.out .harga b{color:var(--red);text-decoration:line-through;text-decoration-thickness:2px}
+  .row.out h3{color:#b8c0b6}
+  .stamp{position:absolute;right:18px;top:96px;border:3px solid var(--red);color:var(--red);
+         border-radius:50%;width:86px;height:86px;display:grid;place-items:center;text-align:center;
+         font-size:12px;line-height:1.2;letter-spacing:.1em;transform:rotate(11deg);opacity:.92;
+         text-transform:uppercase;padding:6px}
+  .tally{margin-top:12px;border-top:2px solid var(--chalk);padding-top:12px;
+         display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+  .tally small{display:block;font:400 11px/1.3 "Barlow","Segoe UI",sans-serif;
+               letter-spacing:.14em;text-transform:uppercase;color:var(--chalk-dim)}
+  .tally b{display:block;margin-top:4px;font-size:26px;font-variant-numeric:tabular-nums}
+  .chalk-btn{border:2px solid var(--chalk);color:var(--chalk);background:transparent;
+             padding:11px 14px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+             border-radius:2px}
+</style>
+</head>
+<body>
+<div class="board">
+  <div class="top">
+    <div class="mark">NINA<br>RASA</div>
+    <div><h1>Papan Menu</h1><small>Bakso &amp; Mie Ayam · Buka 10–20</small></div>
+  </div>
+  <div class="stamp">Rasa Pas<br>Bikin Nagih</div>
+  <div class="cats"><b>Bakso</b><span>Mie Ayam</span><span>Minuman</span><span>Tambahan</span></div>
+  <div class="rows">
+    <div class="row">
+      <div><h3>Bakso Solo Campur</h3><p>5 butir · mie kuning · pangsit goreng</p></div>
+      <div class="dots"></div>
+      <div class="harga"><b>20.000</b></div>
+    </div>
+    <div class="row">
+      <div><h3>Cilok 1 Porsi</h3><p>10 butir · bumbu kacang</p></div>
+      <div class="dots"></div>
+      <div class="harga"><b>15.000</b></div>
+    </div>
+    <div class="row">
+      <div><h3>Mie Ayam Mozarella</h3><p>Keju leleh · porsi besar</p></div>
+      <div class="dots"></div>
+      <div class="harga"><b>15.000</b><span class="flag">PALING DICARI</span></div>
+    </div>
+    <div class="row">
+      <div><h3>Mie Ayam Original</h3><p>Mie kenyal · ayam kecap</p></div>
+      <div class="dots"></div>
+      <div class="harga"><b>10.000</b></div>
+    </div>
+    <div class="row out">
+      <div><h3>Es Cincau</h3><p>Habis hari ini</p></div>
+      <div class="dots"></div>
+      <div class="harga"><b>6.000</b></div>
+    </div>
+  </div>
+  <div class="tally">
+    <div><small>Ditulis di papan</small><b>3 item · Rp 39.000</b></div>
+    <div class="chalk-btn">Lihat</div>
+  </div>
+</div>
+</body>
+</html>
