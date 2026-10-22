@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papan Penuh — Menu Nina Rasa</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 390px; height: 844px; overflow: hidden;
+    background: #faf6ef; color: #171310;
+    font-family: "Archivo", Arial, sans-serif;
+  }
+  .band {
+    background: #6b1d12; color: #faf6ef;
+    padding: 14px 16px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid #171310;
+  }
+  .brand { display: flex; align-items: center; gap: 9px; }
+  .brand strong { display: block; font-size: 15px; letter-spacing: .06em; }
+  .brand small { font-size: 10px; color: #f0b429; text-transform: uppercase; letter-spacing: .14em; }
+  .dot { width: 38px; height: 38px; border-radius: 7px; background: #f0b429; color: #171310; display: grid; place-items: center; font-size: 20px; }
+  .jam {
+    background: #c22e1d; color: #fff; font-size: 11px; font-weight: 700;
+    padding: 5px 9px; border: 1.5px solid #171310;
+  }
+  .row { display: flex; align-items: stretch; border-bottom: 1.5px solid #171310; background: #f3ecdf; }
+  .search { flex: 1; display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-size: 13px; color: #6b5a4d; border-right: 1.5px solid #171310; }
+  .filter { font-size: 12px; font-weight: 700; padding: 10px 12px; display: grid; place-items: center; color: #6b5a4d; border-right: 1.5px solid #171310; }
+  .filter.on { background: #c22e1d; color: #fff; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; height: 596px; }
+  .cell {
+    display: flex; flex-direction: column;
+    border-right: 1px solid #171310; border-bottom: 1px solid #171310;
+    padding: 10px 11px 9px; position: relative;
+  }
+  .cell:nth-child(2n) { border-right: 0; }
+  .kat { font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #8a7461; }
+  .no { text-align: right; font-size: 9px; font-weight: 700; color: #8a7461; letter-spacing: .1em; }
+  .nm { font-size: 16px; font-weight: 800; line-height: 1.12; margin: 4px 0 2px; letter-spacing: -.01em; }
+  .ver { font-size: 10.5px; color: #6b5a4d; }
+  .em { font-size: 34px; margin: 6px 0 auto; }
+  .foot { margin-top: 8px; display: flex; align-items: end; justify-content: space-between; }
+  .tab {
+    background: #c22e1d; color: #fff; font-weight: 800; font-size: 14px;
+    padding: 4px 9px; letter-spacing: -.01em;
+  }
+  .step { display: flex; gap: 5px; align-items: center; font-weight: 800; font-size: 13px; }
+  .step b { width: 22px; height: 22px; border: 1.5px solid #171310; display: grid; place-items: center; background: #faf6ef; font-size: 13px; }
+  .sold { background: #171310; color: #f0b429; font-size: 9px; font-weight: 800; letter-spacing: .14em; padding: 3px 6px; text-transform: uppercase; }
+  .soldcell .em { filter: grayscale(.8); opacity: .45; }
+  .cart {
+    position: absolute; left: 10px; right: 10px; bottom: 12px;
+    background: #171310; color: #faf6ef;
+    border: 1.5px solid #171310;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 14px;
+  }
+  .cart small { display: block; font-size: 10px; color: #f0b429; letter-spacing: .12em; text-transform: uppercase; }
+  .cart strong { font-size: 16px; }
+  .cta { background: #c22e1d; color: #fff; font-weight: 800; font-size: 13px; padding: 10px 14px; }
+</style>
+</head>
+<body>
+  <div class="band">
+    <div class="brand">
+      <span class="dot">🐓</span>
+      <span><small>Bakso &amp; Mie Ayam</small><strong>NINA RASA</strong></span>
+    </div>
+    <span class="jam">BUKA · 10.00–20.00</span>
+  </div>
+  <div class="row">
+    <div class="search">⌕ Cari nama menu</div>
+    <div class="filter on">Semua</div>
+    <div class="filter">Minuman</div>
+  </div>
+  <div class="grid">
+    <div class="cell">
+      <div class="no">01</div><span class="kat">Bakso</span>
+      <div class="nm">Bakso Solo Campur</div><div class="ver">Kuah kaldu gurih</div>
+      <div class="em">🍲</div>
+      <div class="foot"><span class="tab">Rp 20.000</span><span class="step"><b>−</b>1<b>+</b></span></div>
+    </div>
+    <div class="cell">
+      <div class="no">02</div><span class="kat">Mie Ayam</span>
+      <div class="nm">Mie Ayam Mozarella</div><div class="ver">Mozarella meleleh</div>
+      <div class="em">🍜</div>
+      <div class="foot"><span class="tab">Rp 15.000</span><span class="step"><b>−</b>2<b>+</b></span></div>
+    </div>
+    <div class="cell">
+      <div class="no">03</div><span class="kat">Mie Ayam</span>
+      <div class="nm">Mie Ayam Original</div><div class="ver">Racikan klasik</div>
+      <div class="em">🍜</div>
+      <div class="foot"><span class="tab">Rp 10.000</span><span class="step"><b>−</b>0<b>+</b></span></div>
+    </div>
+    <div class="cell soldcell">
+      <div class="no">04</div><span class="kat">Minuman</span>
+      <div class="nm">Es Cincau</div><div class="ver">Manis dingin segar</div>
+      <div class="em">🥤</div>
+      <div class="foot"><span class="tab">Rp 6.000</span><span class="sold">Habis</span></div>
+    </div>
+    <div class="cell">
+      <div class="no">05</div><span class="kat">Minuman</span>
+      <div class="nm">Es Teh</div><div class="ver">Gula asli batu</div>
+      <div class="em">🧋</div>
+      <div class="foot"><span class="tab">Rp 4.000</span><span class="step"><b>−</b>1<b>+</b></span></div>
+    </div>
+    <div class="cell">
+      <div class="no">06</div><span class="kat">Tambahan</span>
+      <div class="nm">Pangsit Goreng</div><div class="ver">Renyah 8 biji</div>
+      <div class="em">🥟</div>
+      <div class="foot"><span class="tab">Rp 5.000</span><span class="step"><b>−</b>0<b>+</b></span></div>
+    </div>
+  </div>
+  <div class="cart">
+    <span><small>Pesananmu</small><strong>4 item · Rp 59.000</strong></span>
+    <span class="cta">Lihat Pesanan →</span>
+  </div>
+</body>
+</html>

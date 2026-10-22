@@ -3,56 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Nina Rasa</title>
+  <title>Register — Nina Rasa</title>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/auth.js"></script>
 </head>
-<body class="register-page">
-  <main class="auth-card register-card">
-    <section class="brand-panel" aria-label="Nina Rasa">
-      <img class="brand-logo-image" src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa - Bakso &amp; Mie Ayam">
-    </section>
+<body class="board auth-body">
+  <main class="passcard">
+    <div class="passcard-brand">
+      <img src="assets/logo-nina-rasa.png" alt="">
+      <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+    </div>
 
-    <section class="form-panel">
-      <h1>REGISTER</h1>
-      <form id="register-form">
-        <div class="fields">
-          <div class="field">
-            <label for="username">Username</label>
-            <div class="field-control">
-              <input id="username" name="username" type="text" placeholder="Username" autocomplete="username" required>
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="3.5"></circle>
-                <path d="M5.5 20c.4-3.6 2.8-5.5 6.5-5.5s6.1 1.9 6.5 5.5"></path>
-              </svg>
-            </div>
-          </div>
-          <div class="field">
-            <label for="password">Password</label>
-            <div class="field-control">
-              <input id="password" name="password" type="password" placeholder="Password" autocomplete="new-password" required>
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-                <rect x="5.5" y="10" width="13" height="10" rx="2"></rect>
-                <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2"></path>
-              </svg>
-            </div>
-          </div>
-          <div class="field">
-            <label for="confirm-password">Confirm Password</label>
-            <div class="field-control">
-              <input id="confirm-password" name="confirm-password" type="password" placeholder="Confirm Password" autocomplete="new-password" required>
-              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
-                <rect x="5.5" y="10" width="13" height="10" rx="2"></rect>
-                <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
+    <section class="passcard-form">
+      <h1>DAF<i>TAR</i></h1>
+      <p class="passcard-sub">Bikin kartu pelanggan dulu, tunggu menu panggil.</p>
+      <form id="register-form" novalidate>
+        <label class="field" for="username">
+          <span>Nama pengguna</span>
+          <input id="username" name="username" type="text" placeholder="mis. budi08" autocomplete="username" required>
+        </label>
+        <label class="field" for="password">
+          <span>Password</span>
+          <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="new-password" required>
+        </label>
+        <label class="field" for="confirm-password">
+          <span>Konfirmasi password</span>
+          <input id="confirm-password" name="confirm-password" type="password" placeholder="ulangi password" autocomplete="new-password" required>
+        </label>
         <p class="auth-feedback" id="register-feedback" role="status" aria-live="polite"></p>
-        <button class="submit-button" type="submit">DAFTAR</button>
+        <button class="block-button submit-button" type="submit">Daftar ke kedai →</button>
+        <p class="form-link">Sudah punya akun? <a href="Login.html">Masuk di sini!</a></p>
       </form>
     </section>
   </main>
+
   <script>
     const registerForm = document.querySelector("#register-form");
     const registerFeedback = document.querySelector("#register-feedback");

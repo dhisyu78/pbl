@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Nina Rasa</title>
+  <title>Dashboard — Nina Rasa</title>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/auth.js"></script>
 </head>
-<body class="dashboard-body">
-  <header class="home-header">
-    <a class="home-logo" href="Dashboard.html" aria-label="Nina Rasa, beranda">
-      <img src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa">
-    </a>
-    <nav class="home-nav" aria-label="Navigasi utama">
+<body class="board">
+  <header class="topbar">
+    <div class="topbar-upper">
+      <a class="topbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <span class="topbar-open"><i aria-hidden="true"></i> Buka hari ini · 10.00–20.00</span>
+    </div>
+    <nav class="mainnav" aria-label="Navigasi utama">
       <a class="is-active" href="Dashboard.html" aria-current="page">Home</a>
       <a href="Menu.html">Menu</a>
       <a href="Kursi.html">Kursi</a>
@@ -20,40 +24,78 @@
     </nav>
   </header>
 
-  <main class="home-main">
-    <section class="home-hero" aria-labelledby="home-title">
-      <div class="home-hero-copy">
-        <p>Selamat Datang</p>
-        <h1 id="home-title">WEBSITE NINA RASA</h1>
-        <span class="home-dots" aria-hidden="true"></span>
+  <main class="sheet sheet-wide">
+    <section class="datehero" aria-label="Papan hari ini">
+      <div class="datehero-date">
+        <small id="hero-day">Dapur buka</small>
+        <strong id="hero-date">22</strong>
+        <span class="month" id="hero-month">Okt</span>
       </div>
-      <img class="home-hero-logo" src="assets/logo-nina-rasa.png" alt="Bakso &amp; Mie Ayam Nina Rasa">
-    </section>
-
-    <section class="home-profile" aria-labelledby="profile-title">
-      <div class="profile-photo" role="img" aria-label="Ilustrasi kedai Nina Rasa">
-        <span>BAKSO &amp; MIE AYAM</span>
-      </div>
-      <div class="profile-copy">
-        <h2 id="profile-title">PROFIL SINGKAT NINA RASA</h2>
-        <p>Kedai Nina Rasa adalah usaha kuliner spesialis bakso dan mie ayam lezat yang kini hadir di berbagai lokasi cabang. Menghadirkan olahan daging sapi pilihan, racikan mie kenyal, serta kuah kaldu gurih dengan resep khas, Kedai Nina Rasa berkomitmen untuk selalu menjaga kualitas rasa, kebersihan, dan pelayanan terbaik secara konsisten di setiap cabangnya.</p>
+      <div class="datehero-copy">
+        <h1>Pilih menu sekali lihat,<br><em>bikin nagih</em> sebelum panggil staf.</h1>
+        <p class="hero-tagline">"Rasa Pas, Bikin Nagih!" — semboyan yang terpatri di setiap mangkuk.</p>
+        <div class="hero-actions">
+          <a class="block-button" href="Menu.html">Buka papan menu →</a>
+          <a class="block-button ink" href="PesananSaya.html">Lihat kuitansiku</a>
+        </div>
       </div>
     </section>
 
-    <section class="home-favorites" aria-label="Menu favorit Nina Rasa">
-      <a class="home-food-card" href="Menu.html">
-        <span class="home-food-art food-mozarella" role="img" aria-label="Ilustrasi mie ayam mozarella">🍝</span>
-        <strong>Mie ayam mozarella</strong>
+    <a class="picksheet" href="Menu.html" aria-label="Menu andalan hari ini: Mie Ayam Mozarella, buka papan menu">
+      <span class="picksheet-lead">Andalan pelanggan</span>
+      <h2 id="andalan-title">Mie Ayam Mozarella
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 300 70">
+          <path d="M148 6C74 -2 6 16 7 35 8 56 96 68 156 62 216 68 296 54 294 36 292 16 230 2 152 7" pathLength="1"></path>
+        </svg>
+      </h2>
+      <p>Mozarella meleleh di atas ayam kecap dan mie kenyal — pilihan yang paling sering ditulis ulang di papan kami.</p>
+      <span class="block-button">Beri tandanya →</span>
+    </a>
+
+    <section class="favrows" aria-label="Cuma sekali lihat: favorit kedai">
+      <div class="favrows-head">
+        <h2>Yang sering dilirik</h2>
+        <a href="Menu.html">Semua menu →</a>
+      </div>
+      <a class="favrow" href="Menu.html">
+        <strong>Bakso Solo Campur</strong>
+        <span>Bakso</span>
+        <b>Rp 20.000</b>
       </a>
-      <a class="home-food-card" href="Menu.html">
-        <span class="home-food-art food-ceker" role="img" aria-label="Ilustrasi mie ayam ceker">🍜</span>
-        <strong>Mie ayam ceker</strong>
+      <a class="favrow" href="Menu.html">
+        <strong>Ceker Ayam</strong>
+        <span>Tambahan</span>
+        <b>Rp 5.000</b>
       </a>
-      <a class="home-food-card" href="Menu.html">
-        <span class="home-food-art food-bakso" role="img" aria-label="Ilustrasi bakso solo campur">🍲</span>
-        <strong>Bakso solo campur</strong>
+      <a class="favrow" href="Menu.html">
+        <strong>Es Teh</strong>
+        <span>Minuman</span>
+        <b>Rp 4.000</b>
       </a>
+    </section>
+
+    <section class="storyblock" aria-labelledby="profil-title">
+      <h2 id="profil-title">Profil singkat Nina Rasa</h2>
+      <p>Kedai Nina Rasa adalah usaha kuliner spesialis bakso dan mie ayam lezat yang kini hadir di berbagai lokasi cabang. Menghadirkan olahan daging sapi pilihan, racikan mie kenyal, serta kuah kaldu gurih dengan resep khas, Kedai Nina Rasa berkomitmen untuk selalu menjaga kualitas rasa, kebersihan, dan pelayanan terbaik secara konsisten di setiap cabangnya.</p>
     </section>
   </main>
+
+  <footer class="printbar">
+    <div class="printbar-inner">
+      <a class="printbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <p>Rasa pas, bikin nagih — papan menu diperbarui setiap buka kedai.</p>
+      <a href="Login.html">Masuk staf</a>
+    </div>
+  </footer>
+
+  <script>
+    const today = new Date();
+    document.querySelector("#hero-day").textContent = today.toLocaleDateString("id-ID", { weekday: "long" });
+    document.querySelector("#hero-date").textContent = String(today.getDate()).padStart(2, "0");
+    document.querySelector("#hero-month").textContent = `${today.toLocaleDateString("id-ID", { month: "short" })} ${today.getFullYear()}`;
+  </script>
 </body>
 </html>

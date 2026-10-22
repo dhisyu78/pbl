@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pesanan Saya - Nina Rasa</title>
+  <title>Pesanan Saya — Nina Rasa</title>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/auth.js"></script>
 </head>
-<body class="dashboard-body">
-  <header class="home-header">
-    <a class="home-logo" href="Dashboard.html" aria-label="Nina Rasa, beranda">
-      <img src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa">
-    </a>
-    <nav class="home-nav" aria-label="Navigasi utama">
+<body class="board">
+  <header class="topbar">
+    <div class="topbar-upper">
+      <a class="topbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <span class="topbar-open"><i aria-hidden="true"></i> Buka hari ini · 10.00–20.00</span>
+    </div>
+    <nav class="mainnav" aria-label="Navigasi utama">
       <a href="Dashboard.html">Home</a>
       <a href="Menu.html">Menu</a>
       <a href="Kursi.html">Kursi</a>
@@ -20,67 +24,79 @@
     </nav>
   </header>
 
-  <main class="content-page">
-    <section class="page-intro">
-      <p class="eyebrow">Riwayat dan status</p>
-      <h1>Pesanan Saya</h1>
-      <p>Periksa pilihan menu sebelum melanjutkan.</p>
+  <main class="sheet">
+    <section class="kui-head" aria-labelledby="orders-title">
+      <h1 id="orders-title">Belum ada pesanan</h1>
+      <span id="orders-message">Papan masih kosong — pilih menu dulu, kuitansi ini otomatis terisi.</span>
     </section>
-    <section class="seating-panel order-review" aria-labelledby="orders-title" aria-live="polite">
-      <div class="seating-icon" aria-hidden="true">🛍️</div>
-      <h2 id="orders-title">Belum ada pesanan</h2>
-      <p id="orders-message">Yuk, pilih menu favoritmu dan nikmati hidangan Nina Rasa.</p>
-      <div class="order-lines" id="order-lines" hidden></div>
-      <p class="order-total" id="order-total" hidden></p>
-      <a class="dashboard-button" id="orders-action" href="Menu.html">Jelajahi Menu <span aria-hidden="true">→</span></a>
+
+    <section class="kui">
+      <div class="kui-label"><span>NINA RASA · KUITANSI DUDUK</span><span id="kui-day"></span></div>
+      <div class="kui-lines" id="order-lines" hidden></div>
+      <div class="kui-total" id="order-total" hidden>
+        <small>Total tanda</small>
+        <strong>Rp 0</strong>
+      </div>
+      <p class="kui-note">Yuk, pilih menu favoritmu dan nikmati hidangan Nina Rasa langsung di kedai.</p>
+      <a class="block-button" id="orders-action" href="Menu.html">Jelajahi papan menu →</a>
     </section>
   </main>
 
-  <footer class="dashboard-footer">
-    <a class="footer-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
-      <img src="assets/logo-nina-rasa.png" alt="">
-      <span class="footer-brand-copy"><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
-    </a>
-    <p>Rasa hangat dari keluarga. Dibuat dengan sepenuh hati di Indonesia.</p>
-    <a href="Login.html">Masuk staf</a>
+  <footer class="printbar">
+    <div class="printbar-inner">
+      <a class="printbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <p>Rasa pas, bikin nagih — papan menu diperbarui setiap buka kedai.</p>
+      <a href="Login.html">Masuk staf</a>
+    </div>
   </footer>
+
   <script>
     const savedCart = JSON.parse(localStorage.getItem("ninaRasaCart") || "{}");
     const orderProducts = [
-      { name: "Bakso Solo Campur", price: 20000, image: "🍲" },
-      { name: "Cilok 1 Porsi", price: 15000, image: "🥣" },
-      { name: "Mie Ayam Original", price: 10000, image: "🍜" },
-      { name: "Mie Ayam Mozarella", price: 15000, image: "🍜" },
-      { name: "Es Teh", price: 4000, image: "🧋" },
-      { name: "Es Cincau", price: 6000, image: "🥤" },
-      { name: "Ceker Ayam", price: 5000, image: "🍗" },
-      { name: "Pangsit Goreng", price: 5000, image: "🥟" }
+      { name: "Bakso Solo Campur", price: 20000 },
+      { name: "Cilok 1 Porsi", price: 15000 },
+      { name: "Mie Ayam Original", price: 10000 },
+      { name: "Mie Ayam Mozarella", price: 15000 },
+      { name: "Es Teh", price: 4000 },
+      { name: "Es Cincau", price: 6000 },
+      { name: "Ceker Ayam", price: 5000 },
+      { name: "Pangsit Goreng", price: 5000 }
     ];
     const formatOrderPrice = amount => `Rp ${amount.toLocaleString("id-ID")}`;
     const orderItems = orderProducts.filter(product => savedCart[product.name] > 0);
     const orderCount = orderItems.reduce((total, product) => total + savedCart[product.name], 0);
     const orderSum = orderItems.reduce((total, product) => total + savedCart[product.name] * product.price, 0);
+    const todayText = new Date().toLocaleDateString("id-ID", { weekday: "long" });
+    document.querySelector("#kui-day").textContent = todayText;
 
     if (orderItems.length > 0) {
+      document.querySelector(".kui-label").lastElementChild.textContent = `${orderCount} item · ${todayText}`;
       const orderLines = document.querySelector("#order-lines");
       orderLines.hidden = false;
-      document.querySelector("#orders-title").textContent = "Ringkasan Pesanan";
-      document.querySelector("#orders-message").textContent = "Pilihan ini tersimpan di browser dan belum dikirim ke restoran.";
-      document.querySelector("#order-total").hidden = false;
-      document.querySelector("#order-total").textContent = `Total · ${formatOrderPrice(orderSum)}`;
-      document.querySelector("#orders-action").innerHTML = `Kembali ke Menu <span aria-hidden="true">→</span>`;
+      document.querySelector("#orders-title").textContent = "Ringkasan pesanan";
+      document.querySelector("#orders-message").textContent = "Pilihan ini tersimpan di browser perangkat ini dan belum dikirim ke restoran.";
+      document.querySelector(".kui-note").textContent = "Tunjukkan lembar ini ke staf di kedai — pesanan tidak dikirim otomatis.";
+      const total = document.querySelector("#order-total");
+      total.querySelector("strong").textContent = formatOrderPrice(orderSum);
+      total.hidden = false;
 
       orderItems.forEach(product => {
         const row = document.createElement("div");
-        row.className = "order-line";
-        const title = document.createElement("span");
-        title.className = "order-line-title";
-        title.textContent = `${product.image} ${product.name} × ${savedCart[product.name]}`;
-        const price = document.createElement("strong");
+        row.className = "kui-line";
+        const name = document.createElement("strong");
+        name.textContent = product.name;
+        const qty = document.createElement("span");
+        qty.textContent = `× ${savedCart[product.name]}`;
+        const price = document.createElement("b");
         price.textContent = formatOrderPrice(product.price * savedCart[product.name]);
-        row.append(title, price);
+        row.append(name, qty, price);
         orderLines.append(row);
       });
+
+      document.querySelector("#orders-action").textContent = "Kembali ke papan menu →";
     }
   </script>
 </body>

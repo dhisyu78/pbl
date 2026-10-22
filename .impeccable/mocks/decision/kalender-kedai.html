@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalender Kedai — Menu Nina Rasa</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 390px; height: 844px; overflow: hidden;
+    background: #f7f3e8; color: #141210;
+    font-family: "Archivo", Arial, sans-serif;
+  }
+  .bar { background: #141210; color: #f7f3e8; padding: 13px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .bar strong { font-size: 14px; letter-spacing: .08em; }
+  .bar small { font-size: 10px; color: #8a6f4d; text-transform: uppercase; letter-spacing: .14em; }
+  .date { background: #f7f3e8; border-bottom: 3px solid #141210; padding: 14px 16px 0; }
+  .day { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #c8371f; }
+  .tall { font-size: 40px; font-weight: 900; letter-spacing: -.02em; line-height: 1; }
+  .tall span { font-size: 16px; font-weight: 700; color: #8a6f4d; }
+  .grid { padding: 10px 12px 0; height: 610px; }
+  .katrow { display: flex; align-items: center; gap: 8px; margin: 10px 0 4px; }
+  .katrow b { font-size: 10px; font-weight: 800; letter-spacing: .18em; color: #8a6f4d; }
+  .katrow i { flex: 1; border-bottom: 1.5px solid #141210; }
+  .item {
+    display: flex; align-items: center; gap: 10px;
+    border: 1.5px solid #141210; border-bottom-width: 0;
+    padding: 8px 12px; background: #fdfbf4;
+  }
+  .item:last-of-type { border-bottom-width: 1.5px; }
+  .d { width: 34px; font-size: 24px; font-weight: 900; text-align: center; color: #141210; font-variant-numeric: tabular-nums; font-style: italic; }
+  .tt { flex: 1; min-width: 0; }
+  .tt b { display: block; font-size: 15px; font-weight: 800; }
+  .tt small { font-size: 10.5px; color: #6d5f4e; }
+  .num { text-align: right; }
+  .num b { display: block; font-size: 22px; font-weight: 900; color: #c8371f; letter-spacing: -.02em; }
+  .num small { font-size: 9px; color: #8a6f4d; font-weight: 700; letter-spacing: .1em; }
+  .red { background: #c8371f; color: #fdfbf4; }
+  .red .tt small, .red .num small, .red .num b { color: #fdfbf4; }
+  .red .num b { color: #f7f3e8; }
+  .red .d { color: #f7f3e8; }
+  .strip { background: #c8371f; color: #f7f3e8; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 3px 6px; display: inline-block; margin-left: -12px; }
+  .cart {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    border-top: 3px solid #141210; background: #fdfbf4;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px 18px;
+  }
+  .cart small { display: block; font-size: 9px; font-weight: 800; letter-spacing: .16em; color: #8a6f4d; text-transform: uppercase; }
+  .cart strong { font-size: 16px; font-variant-numeric: tabular-nums; }
+  .cta { background: #141210; color: #f7f3e8; font-weight: 800; font-size: 13px; padding: 11px 16px; }
+</style>
+</head>
+<body>
+  <div class="bar"><strong>NINA RASA</strong><small>Bakso · Mie Ayam</small></div>
+  <div class="date">
+    <div class="day">Kamis · Dapur buka</div>
+    <div class="tall">10<span>:00 — 20:00 · hari ini</span></div>
+  </div>
+  <div class="grid">
+    <div class="katrow"><b>BAKSO</b><i></i></div>
+    <div class="item">
+      <div class="d">1</div>
+      <div class="tt"><b>Bakso Solo Campur</b><small>Kuah kaldu gurih, pedas sedang</small></div>
+      <div class="num"><small>JUMLAH 2</small><b>20K</b></div>
+    </div>
+    <div class="item red">
+      <span class="strip">Hari ini</span>
+      <div class="d">2</div>
+      <div class="tt"><b>&nbsp;&nbsp;&nbsp;Cilok 1 Porsi</b><small>&nbsp;&nbsp;&nbsp;Sambal kacang, kuah sajikan</small></div>
+      <div class="num"><b>15K</b></div>
+    </div>
+    <div class="katrow"><b>MIE AYAM</b><i></i></div>
+    <div class="item">
+      <div class="d">1</div>
+      <div class="tt"><b>Mie Ayam Original</b><small>Mie kenyal, ayam kecap</small></div>
+      <div class="num"><b>10K</b></div>
+    </div>
+    <div class="item">
+      <div class="d">1</div>
+      <div class="tt"><b>Mie Ayam Mozarella</b><small>Mozarella meleleh</small></div>
+      <div class="num"><small>JUMLAH 2</small><b>15K</b></div>
+    </div>
+    <div class="katrow"><b>MINuman</b><i></i></div>
+    <div class="item">
+      <div class="d">1</div>
+      <div class="tt"><b>Es Teh</b><small>Gula asli batu</small></div>
+      <div class="num"><b>4K</b></div>
+    </div>
+    <div class="item" style="opacity:.5">
+      <div class="d">—</div>
+      <div class="tt"><b>Es Cincau</b><small>Tercoret: habis hari ini</small></div>
+      <div class="num"><b>6K</b></div>
+    </div>
+  </div>
+  <div class="cart">
+    <span><small>Keranjang kamis</small><strong>Rp 59.000</strong></span>
+    <span class="cta">LIHAT →</span>
+  </div>
+</body>
+</html>

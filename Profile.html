@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil Saya - Nina Rasa</title>
+  <title>Profil Saya — Nina Rasa</title>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/auth.js"></script>
 </head>
-<body class="dashboard-body profile-page">
-  <header class="home-header">
-    <a class="home-logo" href="Dashboard.html" aria-label="Nina Rasa, beranda">
-      <img src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa">
-    </a>
-    <nav class="home-nav" aria-label="Navigasi utama">
+<body class="board">
+  <header class="topbar">
+    <div class="topbar-upper">
+      <a class="topbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <span class="topbar-open"><i aria-hidden="true"></i> Buka hari ini · 10.00–20.00</span>
+    </div>
+    <nav class="mainnav" aria-label="Navigasi utama">
       <a href="Dashboard.html">Home</a>
       <a href="Menu.html">Menu</a>
       <a href="Kursi.html">Kursi</a>
@@ -20,36 +24,39 @@
     </nav>
   </header>
 
-  <main class="profile-content">
-    <h1>Profil saya</h1>
-    <div class="profile-layout">
-      <form class="profile-form" id="profile-form">
-        <label class="profile-field" for="profile-username">
-          <span>Username</span>
+  <main class="sheet sheet-wide profsheet">
+    <h1>Daftar langganan kedai</h1>
+
+    <div class="profile-grid">
+      <form class="profile-form" id="profile-form" aria-label="Formulir profil">
+        <label class="field" for="profile-username">
+          <span>Nama pengguna</span>
           <input id="profile-username" name="username" type="text" autocomplete="username" readonly required>
         </label>
-        <label class="profile-field" for="profile-name">
+        <label class="field" for="profile-name">
           <span>Nama</span>
           <input id="profile-name" name="name" type="text" autocomplete="name" required>
         </label>
-        <label class="profile-field" for="profile-email">
+        <label class="field" for="profile-email">
           <span>Email</span>
           <input id="profile-email" name="email" type="email" autocomplete="email" required>
         </label>
-        <label class="profile-field" for="profile-phone">
+        <label class="field" for="profile-phone">
           <span>Nomor telepon</span>
           <input id="profile-phone" name="phone" type="tel" autocomplete="tel" required>
         </label>
-        <fieldset class="profile-field profile-gender">
+        <fieldset class="field field-group profile-gender">
           <legend>Jenis kelamin</legend>
-          <label><input type="radio" name="gender" value="Laki-laki" required> <span>Laki-laki</span></label>
-          <label><input type="radio" name="gender" value="Perempuan"> <span>Perempuan</span></label>
+          <div class="choice-row">
+            <label><input type="radio" name="gender" value="Laki-laki" required> <span>Laki-laki</span></label>
+            <label><input type="radio" name="gender" value="Perempuan"> <span>Perempuan</span></label>
+          </div>
         </fieldset>
-        <label class="profile-field" for="profile-birthdate">
+        <label class="field" for="profile-birthdate">
           <span>Tanggal lahir</span>
           <input id="profile-birthdate" name="birthdate" type="date" autocomplete="bday" required>
         </label>
-        <button class="profile-save-button" type="submit">Simpan</button>
+        <button class="block-button profile-save-button" type="submit">Simpan lembar profil →</button>
         <div class="profile-save-status" id="profile-save-status" role="status" aria-live="polite" aria-atomic="true">
           <strong id="profile-save-title"></strong>
           <span id="profile-save-message"></span>
@@ -73,6 +80,17 @@
       </aside>
     </div>
   </main>
+
+  <footer class="printbar">
+    <div class="printbar-inner">
+      <a class="printbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <p>Rasa pas, bikin nagih — papan menu diperbarui setiap buka kedai.</p>
+      <a href="Login.html">Masuk staf</a>
+    </div>
+  </footer>
 
   <script>
     const pictureInput = document.querySelector("#profile-picture");

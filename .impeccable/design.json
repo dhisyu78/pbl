@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T16:20:00+07:00",
+  "title": "Design System: Nina Rasa",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Kertas Jerami", "canonical": "#f7f3e8", "tonalRamp": ["#141210", "#3d382e", "#6d6354", "#948977", "#bdb29e", "#e2dbca", "#f0ebdd", "#f7f3e8", "#fdfbf4"] },
+      "paper-hi": { "role": "neutral", "displayName": "Kertas Tulis", "canonical": "#fdfbf4", "tonalRamp": ["#141210", "#3d382e", "#6d6354", "#948977", "#bdb29e", "#e2dbca", "#f0ebdd", "#f7f3e8", "#fdfbf4"] },
+      "ink": { "role": "neutral", "displayName": "Tinta Hitam", "canonical": "#141210", "tonalRamp": ["#141210", "#2e2722", "#463e37", "#6d5537", "#9a8a73", "#c4b8a0", "#ddd3bc", "#efe6d2", "#f7f3e8"] },
+      "red": { "role": "primary", "displayName": "Merah Stamp", "canonical": "#c8371f", "tonalRamp": ["#3d0f08", "#65170e", "#8f2014", "#c8371f", "#d95b45", "#e8836f", "#f0a893", "#f7cabd", "#fbe5de"] },
+      "brown": { "role": "secondary", "displayName": "Cokelat Warung", "canonical": "#6d5537", "tonalRamp": ["#1f1810", "#3a2e1e", "#54432c", "#6d5537", "#8a7151", "#a58d6c", "#c0aa8a", "#d8c7a9", "#eee2ca"] },
+      "disabled-border": { "role": "tertiary", "displayName": "Gold Disabled", "canonical": "#b8a98c", "tonalRamp": ["#4a4030", "#6a5c44", "#8a7a5e", "#b8a98c", "#ccbea3", "#dccfaf", "#e7dbbf", "#efe7d2", "#f5efe1"] },
+      "hover-ink": { "role": "neutral", "displayName": "Cokelat Gelap Hover", "canonical": "#2e2722", "tonalRamp": ["#141210", "#2e2722", "#463e37", "#6d5537", "#9a8a73", "#c4b8a0", "#ddd3bc", "#efe6d2", "#f7f3e8"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display Stamp", "purpose": "Tanggal hari ini, angka raksasa, harga hero." },
+      "headline": { "displayName": "Headline Stamp", "purpose": "Harga item, nomor urut, nama andalan." },
+      "body": { "displayName": "Tinta Isi", "purpose": "Seluruh kalimat isi." },
+      "label": { "displayName": "Label Cap", "purpose": "Kategori, kicker, lencana." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-stamp", "value": "cubic-bezier(0.2, 0.7, 0.3, 1)", "purpose": "Goresan coret & lingkar putaran — satu momen berbicara per halaman." },
+      { "name": "press-fast", "value": "0.15s ease", "purpose": "Transisi state tombol dan border warna." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "min-width: 760px" },
+      { "name": "narrow", "value": "max-width: 420px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Tombol Blok (Primary)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Blok tinta penuh, teks kertas, tanpa radius; hover berubah jadi cokelat gelap hover.",
+      "html": "<button class=\"ds-btn-primary\">Masukkan ke nota</button>",
+      "css": ".ds-btn-primary { background: #141210; color: #f7f3e8; border: 1.5px solid #141210; padding: 12px 18px; font-family: Barlow, Arial, sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 0.02em; text-transform: uppercase; border-radius: 0; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; } .ds-btn-primary:hover { background: #2e2722; } .ds-btn-primary:focus-visible { outline: 3px solid #c8371f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tombol Kuantitas",
+      "kind": "button",
+      "refersTo": "button-quantity",
+      "description": "Kotak 34px, kertas tulis, border tinta 1.5px; hover berbalik tinta penuh.",
+      "html": "<button class=\"ds-qty\">+</button>",
+      "css": ".ds-qty { width: 34px; height: 34px; display: grid; place-items: center; padding: 0; border: 1.5px solid #141210; background: #fdfbf4; color: #141210; cursor: pointer; font-size: 17px; font-weight: 700; line-height: 1; border-radius: 0; transition: background 0.15s ease, color 0.15s ease; } .ds-qty:hover:not(:disabled) { background: #141210; color: #f7f3e8; } .ds-qty:disabled { border-color: #b8a98c; color: #6d5537; cursor: not-allowed; } .ds-qty:focus-visible { outline: 3px solid #c8371f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Field Teks",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Kotak kertas 48px dengan border tinta; fokus berubah merah stamp.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Nama panggilan\" />",
+      "css": ".ds-input { width: 100%; min-height: 48px; padding: 10px 14px; border: 1.5px solid #141210; background: #f7f3e8; color: #141210; font-family: Barlow, Arial, sans-serif; font-size: 15.5px; border-radius: 0; } .ds-input:focus { border-color: #c8371f; outline: none; } .ds-input::placeholder { color: #6d5537; }"
+    },
+    {
+      "name": "Chip Pilihan",
+      "kind": "chip",
+      "refersTo": "chip-choice",
+      "description": "Label pilihan baris terbuka, radio asli dengan accent merah stamp.",
+      "html": "<label class=\"ds-chip\"><input type=\"radio\" name=\"ds-demo\" value=\"1\" /> Laki-laki</label>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; border: 1.5px solid #141210; background: #f7f3e8; color: #141210; font-family: Barlow, Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 0; } .ds-chip input { width: 16px; height: 16px; accent-color: #c8371f; } .ds-chip:focus-within { outline: 3px solid #c8371f; outline-offset: 2px; }"
+    },
+    {
+      "name": "Panel Lembar",
+      "kind": "card",
+      "description": "Panel kertas tulis dengan bibir lipat bawah 5px — satu-satunya \"kedalaman\" di dunia ini.",
+      "html": "<div class=\"ds-panel\">Apa pun isi panelnya, bibirnya selalu 5px.</div>",
+      "css": ".ds-panel { border: 1.5px solid #141210; border-bottom-width: 5px; background: #fdfbf4; padding: 20px; color: #141210; font-family: Barlow, Arial, sans-serif; font-size: 14.5px; line-height: 1.5; border-radius: 0; }"
+    },
+    {
+      "name": "Item Menu (Sel Kalender)",
+      "kind": "custom",
+      "description": "Item papan menu: nomor cokelat, nama tebal, harga stamp merah; dipisah hairline, bukan kartu.",
+      "html": "<div class=\"ds-dish\"><span class=\"ds-dish-no\">3</span><div class=\"ds-dish-main\"><h3>Mie Ayam Mozarella</h3><p>Mozarella meleleh di atas ayam kecap dan mie kenyal</p></div><span class=\"ds-dish-price\">15.000</span></div>",
+      "css": ".ds-dish { display: flex; align-items: baseline; gap: 12px; padding: 13px 14px 11px; border-bottom: 1px solid #141210; font-family: Barlow, Arial, sans-serif; } .ds-dish-no { min-width: 26px; font-family: Anton, \"Arial Narrow\", sans-serif; font-size: 21px; color: #6d5537; } .ds-dish h3 { margin: 0; font-size: 17.5px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; color: #141210; } .ds-dish p { margin: 2px 0 0; color: #6d5537; font-size: 12.5px; font-weight: 500; } .ds-dish-price { font-family: Anton, \"Arial Narrow\", sans-serif; font-size: 23px; color: #c8371f; white-space: nowrap; }"
+    },
+    {
+      "name": "Bar Nav Atas",
+      "kind": "nav",
+      "description": "Nav secukupnya dengan tab aktif bertepi bawah tinta tebal; hairline pemisah.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Papan Menu</a><a href=\"#\">Pesanan Saya</a><a href=\"#\">Kursi</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 18px; border-bottom: 1px solid #141210; font-family: Barlow, Arial, sans-serif; } .ds-nav a { padding: 11px 2px 9px; color: #141210; font-size: 13.5px; font-weight: 700; text-decoration: none; border-bottom: 3px solid transparent; } .ds-nav a[aria-current=\"page\"] { border-bottom-color: #141210; } .ds-nav a:hover { color: #c8371f; } .ds-nav a:focus-visible { outline: 3px solid #c8371f; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Kalender Kedai",
+    "overview": "Situs Nina Rasa adalah lembar kalender duduk kedai: dicetak di kertas jerami, angka tanggal hari ini raksasa di pojok, menu tersusun dalam sel tergaris seperti petak tanggal papan dinding, harga di-stamp merah besar seperti cap catatan kasir warung. Kertas selalu terang — dipakai siang hari di kedai, dari ponsel.\nTidak ada bayangan, tidak ada sudut lengkung, tidak ada gradien. Kedalaman dibangun garis cetakan: hairline 1px untuk pemisah isi, garis 1.5px yang melebar 5px di bibir bawah panel sebagai lipatan kertas. Gerak hanya satu momen berbicara per halaman; selebihnya sistem diam dan tegas.\nDunia ini menolak \"riuh tapi tak jelas\" — ramai secara karakter (stamp, coretan, lingkar gores) tetapi hierarkinya tegas: harga merah, isi tinta, keterangan cokelat, dan tak ada elemen dekoratif yang mencuri kontras dari teks.",
+    "keyCharacteristics": [
+      "Kertas jerami terang (#f7f3e8) sebagai dasar seluruh layar, tanpa mode gelap",
+      "Anton sebagai stamp angka & tanggal; Barlow tebal sebagai tinta isi",
+      "Sel tergaris hairline penuh: menu bukan kartu, ia petak kalender",
+      "Harga selalu Anton merah — tak pernah berpindah warna",
+      "Datar: tanpa shadow, tanpa radius; kedalaman dari border bawah tebal 5px"
+    ],
+    "rules": [
+      { "name": "The Red Price Rule", "body": "Merah hanya untuk harga, angka kuantitas, fokus input, gagal simpan, dan band andalan. Kemunculannya adalah informasi, bukan ornamen.", "section": "colors" },
+      { "name": "The No Gray Rule", "body": "Teks sekunder tidak pernah kelabu netral; selalu cokelat warung #6d5537.", "section": "colors" },
+      { "name": "The Stamp Rule", "body": "Angka selalu Anton — harga, kuantitas, nomor urut, tanggal.", "section": "typography" },
+      { "name": "The Flat Ledger Rule", "body": "Tidak ada halo, gradasi, atau bayangan; satu-satunya kedalaman adalah border bawah tebal 5px.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do biarkan harga merah menjadi jangkar: maksud halaman terbaca sekali lirik",
+      "Do ganti semua peran kelabu sekunder dengan cokelat #6d5537",
+      "Do pertahankan target sentuh besar: min-height 42–48px di setiap kontrol",
+      "Do pertahankan font self-host di assets/fonts/ — aset wajib hidup tanpa internet"
+    ],
+    "donts": [
+      "Don't menambahkan box-shadow, border-radius, gradasi, atau elemen mode gelap",
+      "Don't memakai merah sebagai hiasan",
+      "Don't menulis teks sekunder dengan kelabu netral",
+      "Don't menempatkan SVG dekoratif di atas teks — letakkan di lapisan belakang"
+    ]
+  }
+}

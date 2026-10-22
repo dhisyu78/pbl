@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nota &amp; Nomor — Menu Nina Rasa</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 390px; height: 844px; overflow: hidden;
+    background: #2c4f8c; color: #28231e;
+    font-family: "Archivo", Arial, sans-serif;
+    padding: 14px 14px 0;
+  }
+  .book { background: #f4efe3; border-radius: 10px 10px 6px 6px; overflow: hidden; height: 100%; }
+  .top { background: #28231e; color: #f4efe3; padding: 12px 16px; }
+  .top strong { font-size: 14px; letter-spacing: .12em; }
+  .top small { float: right; font-size: 10px; color: #a99a86; letter-spacing: .08em; }
+  .prog { padding: 10px 16px 0; }
+  .prog b { font-size: 10px; font-weight: 800; letter-spacing: .16em; color: #8c8172; }
+  .prog span { display: flex; }
+  .prog input {
+    flex: 1; min-height: 42px; background: #fff; color: #28231e;
+    border: 1px solid #c8bfb0; border-radius: 6px 0 0 6px; padding: 0 12px; font: inherit; font-size: 14px;
+  }
+  .fig {
+    text-align: right; font-variant-numeric: tabular-nums;
+    color: #b3271c; font-weight: 800; font-size: 16px;
+  }
+  .table { margin: 8px 12px 0; background: #fff; border: 1px solid #c8bfb0; border-radius: 8px; }
+  .r { display: flex; align-items: center; gap: 11px; padding: 10px 13px; border-bottom: 1px dashed #c8bfb0; }
+  .r:last-child { border-bottom: 0; }
+  .r .code { font-size: 10px; font-weight: 800; color: #8c8172; font-variant-numeric: tabular-nums; width: 24px; }
+  .r .nm { flex: 1; font-weight: 800; font-size: 14px; }
+  .r .nm small { display: block; font-size: 10.5px; font-weight: 500; color: #8c8172; }
+  .tnm small { display: block; }
+  .r .fig { font-weight: 800; font-size: 14px; }
+  .step b {
+    display: inline-grid; place-items: center; width: 26px; height: 26px;
+    border: 1px solid #c8bfb0; border-radius: 5px; background: #f4efe3;
+    margin-left: 3px; font-size: 12px;
+  }
+  .habis .code { color: #c8bfb0; text-decoration: line-through; }
+  .fig2 {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #28231e; color: #f4efe3; margin: 10px 12px 0;
+    padding: 11px 14px; border-radius: 8px;
+  }
+  .fig2 small { display: block; font-size: 9px; font-weight: 800; color: #c9a765; letter-spacing: .16em; text-transform: uppercase; }
+  .fig2 strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+  .fig2 .stamp {
+    background: #b3271c; color: #fff; font-weight: 800;
+    font-size: 12px; padding: 8px 14px; border-radius: 4px;
+    box-shadow: 0 0 0 2px #f4efe3 inset;
+    transform: rotate(-3deg);
+  }
+  .tear {
+    height: 12px; margin: 0 4px;
+    background: linear-gradient(90deg, #f4efe3 6px, transparent 0) -6px 0/12px 12px repeat-x;
+    filter: drop-shadow(0 1px 0 #d8cfc0);
+    display: none;
+  }
+  .tabwrap { position: relative; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 16px 0; }
+  .tabs i { font-style: normal; font-size: 12px; font-weight: 800; color: #f4efe3; padding: 6px 12px; border-radius: 999px; background: #3c63a4; }
+  .tabs i.on { background: #b3271c; }
+</style>
+</head>
+<body>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <div class="book tabwrap">
+    <div class="top"><strong>NOTA NINA RASA</strong><small>MENGEJA · No. 0122</small></div>
+    <div class="tabs"><i class="on">Semua</i><i>Bakso</i><i>Mie Ayam</i><i>Minuman</i><i>Tambahan</i></div>
+    <div class="prog">
+      <b>RANGKAI NOMOR</b><br>
+      <span><input type="text" placeholder="Cari nomor nota…"> <span class="fig" style="padding:9px 0 8px 13px">Rp 0</span></span>
+    </div>
+    <div class="table">
+      <div class="r">
+        <span class="code">01</span>
+        <div class="nm">Bakso Solo Campur<small>Ember bakso biasa + kuah pedas</small></div>
+        <span class="fig">Rp 20.000</span>
+        <span class="step"><b>−</b><b>+</b></span>
+      </div>
+      <div class="r">
+        <span class="code">02</span>
+        <div class="nm">Cilok 1 Porsi<small>Keceng kacang, kuah sajikan</small></div>
+        <span class="fig">Rp 15.000</span>
+        <span class="step"><b>−</b><b>+</b></span>
+      </div>
+      <div class="r">
+        <span class="code">03</span>
+        <div class="nm">Mie Ayam Original<small>Mie kenyal, keceng kecap</small></div>
+        <span class="fig">Rp 10.000</span>
+        <span class="step"><b>−</b><b>+</b></span>
+      </div>
+      <div class="r habis">
+        <span class="code">04</span>
+        <div class="nm" style="color:#8c8172">Es Cincau<small>Stok habis panggil staf</small></div>
+        <span class="fig" style="color:#8c8172; font-weight:500">—</span>
+        <span class="step"><b style="opacity:.4">+</b></span>
+      </div>
+    </div>
+    <div class="fig2">
+      <span><small>Semua harga belim</small><strong>Rp 45.000</strong></span>
+      <span class="stamp">LUNAS →</span>
+    </div>
+    <div class="tear"></div>
+  </div>
+</body>
+</html>

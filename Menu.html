@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - Nina Rasa</title>
+  <title>Menu — Nina Rasa</title>
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/auth.js"></script>
 </head>
-<body class="dashboard-body menu-page">
-  <header class="home-header">
-    <a class="home-logo" href="Dashboard.html" aria-label="Nina Rasa, beranda">
-      <img src="assets/logo-nina-rasa.png" alt="Logo Nina Rasa">
-    </a>
-    <nav class="home-nav" aria-label="Navigasi utama">
+<body class="board">
+  <header class="topbar">
+    <div class="topbar-upper">
+      <a class="topbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <span class="topbar-open"><i aria-hidden="true"></i> Buka hari ini · 10.00–20.00</span>
+    </div>
+    <nav class="mainnav" aria-label="Navigasi utama">
       <a href="Dashboard.html">Home</a>
       <a class="is-active" href="Menu.html" aria-current="page">Menu</a>
       <a href="Kursi.html">Kursi</a>
@@ -20,22 +24,29 @@
     </nav>
   </header>
 
-  <main class="content-page menu-content">
-    <section class="menu-heading">
-      <div>
-        <p class="eyebrow">Dapur Nina Rasa</p>
-        <h1>Pilih menu kesukaanmu</h1>
-        <p>Dibuat hangat setiap hari dengan rasa rumahan.</p>
+  <main class="sheet">
+    <h1 class="visually-hidden">Papan menu kedai Nina Rasa</h1>
+    <section class="dateblock" aria-label="Papan hari ini">
+      <div class="dateblock-day">
+        <small id="today-day">Dapur buka</small>
+        <span id="today-date" class="dateblock-numeral">10</span>
+        <span id="today-month" class="month">Okt</span>
       </div>
-      <span class="menu-open-status"><span aria-hidden="true"></span> Buka hari ini · 10.00–20.00</span>
+      <p class="dateblock-hours">
+        <strong>10:00 — 20:00</strong>
+        <span>Papan menu hari ini. Semua harga sudah cukup bicara.</span>
+      </p>
     </section>
 
-    <section class="menu-tools" aria-label="Cari dan filter menu">
+    <section class="menutools" aria-label="Cari dan saring menu">
       <label class="menu-search">
-        <span aria-hidden="true">⌕</span>
-        <input id="menu-search" type="search" placeholder="Cari nama menu" aria-label="Cari nama menu">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+          <circle cx="9" cy="9" r="5.5"></circle>
+          <path d="m13.5 13.5 4 4"></path>
+        </svg>
+        <input id="menu-search" type="search" placeholder="Cari nama menu di papan" aria-label="Cari nama menu">
       </label>
-      <div class="menu-filters" role="group" aria-label="Kategori menu">
+      <div class="menu-filters" role="group" aria-label="Saring kategori menu">
         <button class="menu-filter is-selected" type="button" data-filter="Semua" aria-pressed="true">Semua</button>
         <button class="menu-filter" type="button" data-filter="Bakso" aria-pressed="false">Bakso</button>
         <button class="menu-filter" type="button" data-filter="Mie Ayam" aria-pressed="false">Mie Ayam</button>
@@ -44,101 +55,182 @@
       </div>
     </section>
 
-    <section class="menu-grid full-menu-grid order-menu-grid" id="menu-items" aria-label="Daftar menu">
-      <article class="menu-card order-menu-card" data-name="Bakso Solo Campur" data-category="Bakso" data-price="20000" data-image="🍲">
-        <div class="menu-art menu-art-bakso" role="img" aria-label="Ilustrasi bakso solo campur"><span aria-hidden="true">🍲</span><span class="menu-tag">Ready</span></div>
-        <div class="menu-details">
-          <span class="product-category">Bakso</span>
-          <h2>Bakso Solo Campur</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 20.000</strong><div class="quantity-control" aria-label="Jumlah Bakso Solo Campur"></div></div>
+    <div id="menu-items">
+      <section class="catblock" aria-label="Bakso">
+        <div class="catblock-head"><h2>BAKSO</h2><small>2 macam</small></div>
+        <div class="catblock-list">
+          <article class="dish" data-name="Bakso Solo Campur" data-category="Bakso" data-price="20000">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">1</span>
+              <div class="dish-main">
+                <h3>Bakso Solo Campur</h3>
+                <p class="dish-desc">Kuah kaldu gurih, isi lengkap satu mangkuk</p>
+              </div>
+              <strong class="dish-price">Rp 20.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category">Bakso</span>
+              <div class="quantity-control" role="group" aria-label="Jumlah Bakso Solo Campur"></div>
+            </div>
+          </article>
+          <article class="dish" data-name="Cilok 1 Porsi" data-category="Bakso" data-price="15000">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">2</span>
+              <div class="dish-main">
+                <h3>Cilok 1 Porsi</h3>
+                <p class="dish-desc">Cilok kenyal disajikan dengan sambal kacang</p>
+              </div>
+              <strong class="dish-price">Rp 15.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category">Bakso</span>
+              <div class="quantity-control" role="group" aria-label="Jumlah Cilok 1 Porsi"></div>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="menu-card order-menu-card" data-name="Cilok 1 Porsi" data-category="Bakso" data-price="15000" data-image="🥣">
-        <div class="menu-art menu-art-cilok" role="img" aria-label="Ilustrasi cilok"><span aria-hidden="true">🥣</span><span class="menu-tag">Ready</span></div>
-        <div class="menu-details">
-          <span class="product-category">Bakso</span>
-          <h2>Cilok 1 Porsi</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 15.000</strong><div class="quantity-control" aria-label="Jumlah Cilok 1 Porsi"></div></div>
+      </section>
+
+      <section class="catblock" aria-label="Mie Ayam">
+        <div class="catblock-head"><h2>MIE AYAM</h2><small>2 macam</small></div>
+        <div class="catblock-list">
+          <article class="dish" data-name="Mie Ayam Original" data-category="Mie Ayam" data-price="10000">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">1</span>
+              <div class="dish-main">
+                <h3>Mie Ayam Original</h3>
+                <p class="dish-desc">Racikan klasik mie kenyal, ayam kecap</p>
+              </div>
+              <strong class="dish-price">Rp 10.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category">Mie Ayam</span>
+              <div class="quantity-control" role="group" aria-label="Jumlah Mie Ayam Original"></div>
+            </div>
+          </article>
+          <article class="dish" data-name="Mie Ayam Mozarella" data-category="Mie Ayam" data-price="15000">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">2</span>
+              <div class="dish-main">
+                <h3>Mie Ayam Mozarella</h3>
+                <p class="dish-desc">Mozarella meleleh di atas ayam kecap</p>
+              </div>
+              <strong class="dish-price">Rp 15.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category">Mie Ayam</span>
+              <div class="quantity-control" role="group" aria-label="Jumlah Mie Ayam Mozarella"></div>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="menu-card order-menu-card" data-name="Mie Ayam Original" data-category="Mie Ayam" data-price="10000" data-image="🍜">
-        <div class="menu-art menu-art-mie" role="img" aria-label="Ilustrasi mie ayam original"><span aria-hidden="true">🍜</span><span class="menu-tag">Ready</span></div>
-        <div class="menu-details">
-          <span class="product-category">Mie Ayam</span>
-          <h2>Mie Ayam Original</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 10.000</strong><div class="quantity-control" aria-label="Jumlah Mie Ayam Original"></div></div>
+      </section>
+
+      <section class="catblock" aria-label="Minuman">
+        <div class="catblock-head"><h2>MINUMAN</h2><small>2 macam</small></div>
+        <div class="catblock-list">
+          <article class="dish" data-name="Es Teh" data-category="Minuman" data-price="4000">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">1</span>
+              <div class="dish-main">
+                <h3>Es Teh</h3>
+                <p class="dish-desc">Teh tubruk gula batu, disajikan dingin</p>
+              </div>
+              <strong class="dish-price">Rp 4.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category">Minuman</span>
+              <div class="quantity-control" role="group" aria-label="Jumlah Es Teh"></div>
+            </div>
+          </article>
+          <article class="dish is-soldout" data-name="Es Cincau" data-category="Minuman" data-price="6000" data-unavailable="true">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">2</span>
+              <div class="dish-main">
+                <h3>Es Cincau</h3>
+                <p class="dish-desc">Tercoret di papan — habis hari ini</p>
+              </div>
+              <strong class="dish-price">Rp 6.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category"><span class="sold-flag">Tercoret · habis</span></span>
+              <div class="quantity-control" role="group" aria-label="Es Cincau habis"></div>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="menu-card order-menu-card" data-name="Mie Ayam Mozarella" data-category="Mie Ayam" data-price="15000" data-image="🍜">
-        <div class="menu-art menu-art-mozarella" role="img" aria-label="Ilustrasi mie ayam mozarella"><span aria-hidden="true">🍜</span><span class="menu-tag">Ready</span></div>
-        <div class="menu-details">
-          <span class="product-category">Mie Ayam</span>
-          <h2>Mie Ayam Mozarella</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 15.000</strong><div class="quantity-control" aria-label="Jumlah Mie Ayam Mozarella"></div></div>
+      </section>
+
+      <section class="catblock" aria-label="Tambahan">
+        <div class="catblock-head"><h2>TAMBAHAN</h2><small>2 macam</small></div>
+        <div class="catblock-list">
+          <article class="dish" data-name="Ceker Ayam" data-category="Tambahan" data-price="5000">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">1</span>
+              <div class="dish-main">
+                <h3>Ceker Ayam</h3>
+                <p class="dish-desc">Bumbu kecap meresap, cocok jadi tambahan</p>
+              </div>
+              <strong class="dish-price">Rp 5.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category">Tambahan</span>
+              <div class="quantity-control" role="group" aria-label="Jumlah Ceker Ayam"></div>
+            </div>
+          </article>
+          <article class="dish" data-name="Pangsit Goreng" data-category="Tambahan" data-price="5000">
+            <div class="dish-line">
+              <span class="dish-no" aria-hidden="true">2</span>
+              <div class="dish-main">
+                <h3>Pangsit Goreng</h3>
+                <p class="dish-desc">Goreng renyah, 8 biji satu porsi</p>
+              </div>
+              <strong class="dish-price">Rp 5.000</strong>
+            </div>
+            <div class="dish-pedal">
+              <span class="dish-category">Tambahan</span>
+              <div class="quantity-control" role="group" aria-label="Jumlah Pangsit Goreng"></div>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="menu-card order-menu-card" data-name="Es Teh" data-category="Minuman" data-price="4000" data-image="🧋">
-        <div class="menu-art menu-art-teh" role="img" aria-label="Ilustrasi es teh"><span aria-hidden="true">🧋</span><span class="menu-tag">Ready</span></div>
-        <div class="menu-details">
-          <span class="product-category">Minuman</span>
-          <h2>Es Teh</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 4.000</strong><div class="quantity-control" aria-label="Jumlah Es Teh"></div></div>
-        </div>
-      </article>
-      <article class="menu-card order-menu-card is-sold-out" data-name="Es Cincau" data-category="Minuman" data-price="6000" data-image="🥤" data-unavailable="true">
-        <div class="menu-art menu-art-cincau" role="img" aria-label="Ilustrasi es cincau"><span aria-hidden="true">🥤</span><span class="menu-tag">Habis</span></div>
-        <div class="menu-details">
-          <span class="product-category">Minuman</span>
-          <h2>Es Cincau</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 6.000</strong><div class="quantity-control" aria-label="Es Cincau habis"></div></div>
-        </div>
-      </article>
-      <article class="menu-card order-menu-card" data-name="Ceker Ayam" data-category="Tambahan" data-price="5000" data-image="🍗">
-        <div class="menu-art menu-art-ceker" role="img" aria-label="Ilustrasi ceker ayam"><span aria-hidden="true">🍗</span><span class="menu-tag">Ready</span></div>
-        <div class="menu-details">
-          <span class="product-category">Tambahan</span>
-          <h2>Ceker Ayam</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 5.000</strong><div class="quantity-control" aria-label="Jumlah Ceker Ayam"></div></div>
-        </div>
-      </article>
-      <article class="menu-card order-menu-card" data-name="Pangsit Goreng" data-category="Tambahan" data-price="5000" data-image="🥟">
-        <div class="menu-art menu-art-pangsit" role="img" aria-label="Ilustrasi pangsit goreng"><span aria-hidden="true">🥟</span><span class="menu-tag">Ready</span></div>
-        <div class="menu-details">
-          <span class="product-category">Tambahan</span>
-          <h2>Pangsit Goreng</h2>
-          <div class="product-buy-row"><strong class="menu-price">Rp 5.000</strong><div class="quantity-control" aria-label="Jumlah Pangsit Goreng"></div></div>
-        </div>
-      </article>
-    </section>
-    <p class="menu-empty-message" hidden>Menu tidak ditemukan. Coba kata kunci atau kategori lain.</p>
+      </section>
+    </div>
+
+    <p class="menu-empty-message" hidden>Menu tidak ditemukan di papan hari ini. Coba kata kunci atau kategori lain.</p>
   </main>
 
-  <aside class="cart-summary" id="cart-summary" aria-live="polite" hidden>
-    <div class="cart-summary-info">
-      <span class="cart-summary-icon" aria-hidden="true">▣</span>
-      <span><strong>Pesananmu</strong><small id="cart-summary-details">0 item · Rp 0</small></span>
+  <aside class="cartledger" id="cart-summary" aria-live="polite" hidden>
+    <div class="cartledger-info">
+      <small id="cart-summary-label">Pesananmu</small>
+      <strong id="cart-summary-details">0 item · Rp 0</strong>
     </div>
-    <a href="PesananSaya.html">Lihat Pesanan <span aria-hidden="true">→</span></a>
+    <a href="PesananSaya.html">Buka kuitansi →</a>
   </aside>
 
-  <footer class="dashboard-footer">
-    <a class="footer-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
-      <img src="assets/logo-nina-rasa.png" alt="">
-      <span class="footer-brand-copy"><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
-    </a>
-    <p>Rasa hangat dari keluarga. Dibuat dengan sepenuh hati di Indonesia.</p>
-    <a href="Login.html">Masuk staf</a>
+  <footer class="printbar">
+    <div class="printbar-inner">
+      <a class="printbar-brand" href="Dashboard.html" aria-label="Nina Rasa, beranda">
+        <img src="assets/logo-nina-rasa.png" alt="">
+        <span><strong>NINA RASA</strong><small>Bakso &amp; Mie Ayam</small></span>
+      </a>
+      <p>Rasa pas, bikin nagih — papan menu diperbarui setiap buka kedai.</p>
+      <a href="Login.html">Masuk staf</a>
+    </div>
   </footer>
 
   <script>
     const cartStorageKey = "ninaRasaCart";
     const cart = JSON.parse(localStorage.getItem(cartStorageKey) || "{}");
-    const menuCards = [...document.querySelectorAll(".order-menu-card")];
+    const menuCards = [...document.querySelectorAll(".dish")];
     const cartSummary = document.querySelector("#cart-summary");
     const cartSummaryDetails = document.querySelector("#cart-summary-details");
+    const cartSummaryLabel = document.querySelector("#cart-summary-label");
     const menuEmptyMessage = document.querySelector(".menu-empty-message");
     const searchInput = document.querySelector("#menu-search");
     let activeCategory = "Semua";
+
+    const today = new Date();
+    document.querySelector("#today-day").textContent = `Papan bersama ${today.toLocaleDateString("id-ID", { weekday: "long" })}`;
+    document.querySelector("#today-date").textContent = String(today.getDate()).padStart(2, "0");
+    document.querySelector("#today-month").textContent = today.toLocaleDateString("id-ID", { month: "short" });
+    document.querySelector("#cart-summary-label").textContent = `Pesananmu · ${today.toLocaleDateString("id-ID", { weekday: "long" })}`;
 
     function formatRupiah(amount) {
       return `Rp ${amount.toLocaleString("id-ID")}`;
@@ -163,7 +255,7 @@
         const minusButton = document.createElement("button");
         minusButton.type = "button";
         minusButton.className = "quantity-button";
-        minusButton.textContent = "−";
+        minusButton.textContent = "-";
         minusButton.setAttribute("aria-label", `Kurangi ${card.dataset.name}`);
         minusButton.disabled = quantity === 0;
         minusButton.addEventListener("click", () => updateQuantity(card, -1));
@@ -216,7 +308,7 @@
       button.addEventListener("click", () => {
         activeCategory = button.dataset.filter;
         document.querySelectorAll(".menu-filter").forEach(filter => {
-          const selected = filter === button;
+          const selected = filter.dataset.filter === activeCategory;
           filter.classList.toggle("is-selected", selected);
           filter.setAttribute("aria-pressed", selected);
         });

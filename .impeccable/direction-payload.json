@@ -1,0 +1,132 @@
+{
+  "title": "Dunia visual baru Nina Rasa",
+  "question": "Roll menetapkan Kalender Kedai. Pertahankan itu, ambil alternatif, atau roll ulang.",
+  "options": [
+    {
+      "id": "papan-penuh",
+      "kind": "challenger",
+      "catalogId": "japanese-high-density-web",
+      "label": "Papan Penuh",
+      "verdict": "wins",
+      "lineage": "papan menu warung yang penuh baris & modul padat cetakan",
+      "thesis": "Menu seperti papan kedai sungguhan: satu papak modul padat ber-garis rambut, tiap harga memakai tab merah, semua terbaca sekali lihat.",
+      "palette": ["#171310", "#faf6ef", "#c22e1d", "#f0b429"],
+      "materials": ["modul ber-garis rambut", "tab harga merah", "tanah kertas hangat"],
+      "viewport": "Header maroon dengan jam buka, lalu mosaik modul menu padat dengan tab harga merah; keranjang menempel di dasar layar.",
+      "risk": "Padat-nya papan harus disiplin garis; kalau grid longgar, jatuh jadi dashboard SaaS biasa.",
+      "raised": [
+        { "from": "wayfinding-cartography-signage-midnight-transit-diagram", "raise": "Kategori yang sedang dipilih 'terbakar' paling terang, kategori lain tetap menyala namun redup." },
+        { "from": "variable-font-specimen", "raise": "Nama menu berani pada ukuran poster, bukan ukuran label." },
+        { "from": "pop-culture-shelf-vertical-video-feed-surface", "raise": "Satu hidangan favorit kebagian momen penuh layar di beranda, bukan sekadar kartu kecil." },
+        { "from": "rw-centre-rail-reference-setting", "raise": "Setiap garis ditarik tegas satu piksel: hairline serupa mesin penggaris, bukan border samar." }
+      ],
+      "html": ".impeccable/mocks/decision/papan-penuh.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Kalender Kedai",
+      "kicker": "THE ROLL",
+      "lineage": "kalender dinding kedai & cetakan kertas kasar warung",
+      "thesis": "Menu seperti papan tanggal kedai: sel-sel tergaris besar, angka harga jadi pahlawan, kolom merah menandai hari ini.",
+      "palette": ["#f7f3e8", "#141210", "#c8371f", "#8a6f4d"],
+      "materials": ["kertas cetakan kasar", "garis kalender tebal", "angka besar"],
+      "viewport": "Kepala kalender bertanggal hari ini, di bawahnya sel-sel menu pada kotak tergaris dengan angka harga raksasa.",
+      "risk": "Dunia kalender bisa terbaca sebagai kisi-kisi tanggal, bukan menu yang harus dipesan detik itu.",
+      "html": ".impeccable/mocks/decision/kalender-kedai.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Spanduk Tukang Cat",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "spanduk & huruf brush tukang cat papan warung",
+      "thesis": "Menu ditulis seperti tukang cat papan: huruf brush kuning besar di tanah maroon, harga paling lantang, semangat kedai terasa.",
+      "palette": ["#5e150b", "#f7b32b", "#fdf3dd", "#2f855a"],
+      "materials": ["cat kuas tebal", "tepi hitam poster", "pita semboyan"],
+      "viewport": "Tanah maroon penuh, nama menu huruf brush kuning bertumpuk tak rata, harga kuning menyala di bawah tiap nama.",
+      "risk": "Juga arah yang paling sering didaratkan kategori ini: hangat-maroon-kuning adalah taruhan default yang dikenali semua orang.",
+      "html": ".impeccable/mocks/decision/spanduk-tukang-cat.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "nota-siap",
+      "kind": "challenger",
+      "catalogId": "vernacular-ephemera-boarding-pass-and-gate-board",
+      "label": "Nota & Nomor",
+      "verdict": "competitive",
+      "lineage": "nota kasir warung & papan nomor panggilan",
+      "thesis": "Setiap pesanan seperti nota warung: baris barang tabular rapi, blok total bertekstur, nomor siap angkat.",
+      "palette": ["#f4efe3", "#28231e", "#b3271c", "#2c4f8c"],
+      "materials": ["kertas nota sobek", "angka tabular", "stempel"],
+      "viewport": "Kartu nota berperforasi memuat daftar menu, angka rata kolom, stempel merah menegaskan total.",
+      "case": "Fusi bersih: mekanik keranjang & total memang seperti nota; kalah tipis soal kehangatan gugah selera.",
+      "risk": "Ketat-ketat dokumen bisa terasa dingin bila hangat-nya kuah tidak hadir.",
+      "html": ".impeccable/mocks/decision/nota-siap.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "glyph-huruf",
+      "kind": "challenger",
+      "catalogId": "variable-font-specimen",
+      "label": "Specimen Huruf",
+      "verdict": "declined",
+      "lineage": "specimen huruf interaktif pabrik huruf",
+      "palette": ["#f4f2ec", "#111111", "#c8371f"],
+      "materials": ["kertas specimen", "label mono kecil"],
+      "case": "Fusi gagal: tugas pelanggan memilih menu dalam hitungan detik, bukan bermain wajah huruf.",
+      "kept": "Keberanian ukuran display — nama menu diangkat ke skala poster."
+    },
+    {
+      "id": "penuh-layar",
+      "kind": "challenger",
+      "catalogId": "pop-culture-shelf-vertical-video-feed-surface",
+      "label": "Satu Porsei Penuh",
+      "verdict": "declined",
+      "lineage": "umpan video vertikal satu layar sekaligus",
+      "palette": ["#0d0d0f", "#f9f7f2", "#f0b429"],
+      "materials": ["bilah aksi vertikal", "saringan sorot bawah"],
+      "case": "Fusi gagal: satu item per layar menyembunyikan papan harga yang justru inti kedai ini.",
+      "kept": "Momen penuh layar untuk satu hidangan bintang di beranda."
+    },
+    {
+      "id": "jalur-warna",
+      "kind": "challenger",
+      "catalogId": "wayfinding-cartography-signage-midnight-transit-diagram",
+      "label": "Jalur Warna",
+      "verdict": "declined",
+      "lineage": "peta jalur kereta enamel tengah malam",
+      "palette": ["#101b34", "#f3efe6", "#c22e1d"],
+      "materials": ["garis emal biru malam", "bundar pertukaran"],
+      "case": "Fusi gagal: menu bukan jaringan rute; peta justru menambah satu lapisan arti yang tak diperlukan.",
+      "kept": "Disiplin garis: jalur terpilih terbakar paling terang, konteks tetap menyala."
+    },
+    {
+      "id": "garis-tengah",
+      "kind": "challenger",
+      "catalogId": "rw-centre-rail-reference-setting",
+      "label": "Rel Huruf Tengah",
+      "verdict": "declined",
+      "lineage": "halaman rujukan mesin garis dengan rel tengah vermilion",
+      "palette": ["#f2ebda", "#211a14", "#c2401f"],
+      "materials": ["tinta besi-hitam", "garis satu piksel"],
+      "case": "Fusi gagal: terlalu bookish untuk kedai; kehangatan kuah lenyap di bawah tinta halaman rujukan.",
+      "kept": "Mesin garis: setiap hairline ditarik tajam satu piksel, tak ada border kabur."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "Standar kategori",
+    "thesis": "Aplikasi menu pesan-antar yang bersih, putih, dan rapat grid — apa yang kategori ini kirimkan, dieksekusi setara rapi.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["grid bersih", "kartu putih"],
+    "viewport": "Susunan yang semua orang kenal: kartu menu putih, filter biru, keranjang mengambang.",
+    "risk": "Sengaja tak berbeda dari kompetitor; kehangatan kedai rumahan hilang."
+  },
+  "steer": true
+}
